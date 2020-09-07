@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Form Validation</title>
+</head>
+
+<body>
+    <div class="alert alert-success alert-dismissible fade d-none" role="alert" id="success">
+        <strong>Success!</strong> Your form has been successfully submitted.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade d-none" role="alert" id="failure">
+        <strong>Error!</strong> Please fill in the form with valid contents. Then try again.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <h1 class="text-center my-2">Online Flight Book</h1>
+    <div class="container my-2" style="width: 60%;">
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="inputUsername">Username</label>
+                <input type="text" class="form-control" id="inputUsername" placeholder="Enter a valid name">
+                <small id="user" class="invalid-feedback" style="color: red;">
+                    Must be 3-10 characters & don't start with numbers.
+                  </small>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Email address</label>
+                <input type="text" class="form-control" id="inputEmail" placeholder="name@example.com">
+                <small id="email" class="red invalid-feedback">
+                    Enter a valid email with valid characters
+                  </small>
+            </div>
+            <div class="form-group">
+                <label for="flight">Choose a flight</label>
+                <select class="form-control" id="flight">
+                    <option>Boeing 707</option>
+                    <option>Airbus 300</option>
+                    <option>Boeing 404</option>
+                    <option>Emirate 200</option>
+                    <option>United Flight</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputPhone">Phone no.</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="01********">
+                <small id="phone" class="invalid-feedback" style="color: red;">
+                    Please enter a correct phone number.
+                  </small>
+            </div>
+            <div class="form-group">
+                <label for="inputDate">Travel Date.</label>
+                <input type="date" class="form-control" id="inputDate" placeholder="01********">
+            </div>
+            <div class="form-group">
+                <label for="ticketId">Ticket id.</label>
+                <input type="text" class="form-control" id="ticketId" placeholder="**********">
+                <small id="user" class="invalid-feedback" style="color: red;">
+                    Must be 10 characters accept alphabet & numbers
+                  </small>
+            </div>
+            <div class="form-group">
+                <label for="address">Flight Reason</label>
+                <textarea class="form-control" id="address" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" id="submitBtn">Book Flight</button>
+        </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="form.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>
