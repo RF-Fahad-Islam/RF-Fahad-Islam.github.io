@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<title>Our App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+    background-color: white;
+    scroll-behavior: smooth;
+  }
+
+  img {
+    margin-bottom: -8px;
+  }
+
+  .mySlides {
+    display: none;
+  }
+</style>
+
+<body class="w3-content w3-white" style="max-width:1500px;">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light w3-opacity">
+    <a class="navbar-brand" href="#">
+      <img src="RF Logo 2.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      App
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section">Section</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#content">Content</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#description">Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#whatNew">What's New</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#glance">Why our app</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#version">Version <small>v2.0</small></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#plans">Plan <small>&</small>Others</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <!-- the floating messages -->
+
+  <!-- Header with Slideshow -->
+  <header class="w3-display-container w3-center" id="home">
+    <button class="w3-button w3-block w3-green w3-hide-large w3-hide-medium"
+      onclick="document.getElementById('download').style.display='block'">Download <i class="fa fa-android"></i> <i
+        class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+    <div class="mySlides w3-animate-opacity">
+      <img class="w3-image" src='a.jpg' alt="Image 1" style="min-width:500px" width="1500" height="1000">
+      <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+        <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
+          <h1 class="w3-xlarge">Get our projects source-code at one app</h1>
+          <hr class="w3-opacity">
+          <p>No-ads |full free of charge| safe & secure</p>
+          <p><button class="w3-button w3-block w3-green w3-round"
+              onclick="document.getElementById('download').style.display='block'">Download <i class="fa fa-android"></i>
+              <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="mySlides w3-animate-opacity">
+      <img class="w3-image" src="Mobile-App-Launch-.png" alt="Image 2" style="min-width:500px" width="1500"
+        height="1000">
+      <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+        <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
+          <h1 class="w3-xlarge w3-text-red"><b>CLICK!</b> Fast and Easy</h1>
+          <hr class="w3-opacity">
+          <p>Choose from upcoming new of features</p>
+          <p><button class="w3-button w3-block w3-red w3-round"
+              onclick="document.getElementById('download').style.display='block'">Download <i class="fa fa-android"></i>
+              <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="mySlides w3-animate-opacity">
+      <img class="w3-image" src="devapp.png" alt="Image 3" style="min-width:500px" width="1500" height="1000">
+      <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+        <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
+          <h1 class="w3-xlarge">Smart way to keep connected with us</h1>
+          <hr class="w3-opacity">
+          <p>Get our app now!</p>
+          <p><button class="w3-button w3-block w3-indigo w3-round"
+              onclick="document.getElementById('download').style.display='block'">Download <i class="fa fa-android"></i>
+              <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button></p>
+        </div>
+      </div>
+    </div>
+    <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey"
+      onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a>
+    <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i
+        class="fa fa-angle-right"></i></a>
+  </header>
+
+  <!-- The App Section -->
+  <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+    <strong>About:</strong>(Services &amp; projects)
+
+    Easley access our web,
+
+    Youtube, Read blog &amp;
+
+    our fun web projects.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  </div>
+  <div class="w3-padding-64 w3-white" id="section">
+    <div class="w3-row-padding">
+      <div class="w3-col l8 m6">
+        <h1 class="w3-jumbo"><b>RF Gadgets Tech</b> <small>v-2.0</small></h1>
+        <h1 class="w3-xxxlarge w3-text-green"><b>Why This app?</b></h1>
+        <p><span class="w3-xlarge">
+            RF Gadgets Tech app is our new &amp; first app. Our app purpose is to give our users easy access to our
+            websites &amp; Youtube channel. So you can easily read our new articles &amp; blogs of different sites via
+            an app.﻿ It is common but the main purpose of our app is to store and share my web projects of programming
+            and different created interesting web apps. You can access all of our free created web apps that aren't need
+            extra phone storage
+        </p>
+        <button class="w3-button w3-light-grey w3-padding-large w3-section w3-hide-small"
+          onclick="document.getElementById('download').style.display='block'">
+          <i class="fa fa-download"></i> Download Application
+        </button>
+        <p>Available for <i class="fa fa-android w3-xlarge w3-text-green"></i> <i class="fa fa-apple w3-xlarge"></i> <i
+            class="fa fa-windows w3-xlarge w3-text-blue"></i></p>
+      </div>
+      <div class="w3-col l4 m6">
+        <img src="b.jpg" class="w3-image w3-right w3-hide-small" width="335" height="671">
+        <div class="w3-center w3-hide-large w3-hide-medium">
+          <button class="w3-button w3-block w3-padding-large"
+            onclick="document.getElementById('download').style.display='block'">
+            <i class="fa fa-download"></i> Download Application
+          </button>
+          <img src="/w3images/img_app.jpg" class="w3-image w3-margin-top" width="335" height="771">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Modal -->
+  <div id="download" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content" style="padding:32px">
+      <div class="w3-container w3-white">
+        <i onclick="document.getElementById('download').style.display='none'"
+          class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
+        <h2 class="w3-wide">DOWNLOAD</h2>
+        <p>Download the app in our website only for Android.</p>
+        <i class="fa fa-android w3-large"></i> <i class="fa fa-apple w3-large"></i> <i
+          class="fa fa-windows w3-large"></i>
+        <p><input class="w3-input w3-border" type="text" placeholder="Enter your name" required></p>
+        <a href="https://drive.google.com/file/d/19N_0hsB-J1c04T0JyoKcKO09MyxKIy1R/view?usp=sharing"><button
+            type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
+            onclick="document.getElementById('download').style.display='none'; ">Start
+            Download</button></a>
+      </div>
+    </div>
+  </div>
+  <!-- content section -->
+  <div class="card mx-3 my-2" id="content">
+    <h5 class="card-header text-center"><b>Content</b></h5>
+    <div class="card-body">
+      <h5 class="card-title">Our app content summary:</h5>
+      <p class="card-text">
+
+      <ul class="list-group my-3 container">
+        <li class="list-group-item text-center" aria-disabled="true"> Some built-in apps,</li>
+        <li class="list-group-item text-center">plugin to our websites, blogs, Youtube channel &amp;</li>
+        <li class="list-group-item text-center"> also container &amp; plug-in of our free web apps &amp; future game
+          projects</p>
+        </li>
+        <li class="list-group-item text-center">Easily contact with us & get notified</li>
+      </ul>
+      <div class="container">
+        <a href="http://rfgadgetstech.blogspot.com/" class="btn btn-primary d-block">Go To Our Website</a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- highlights Section -->
+  <div class="w3-container w3-padding-50 w3-light-grey w3-center" id="highlights"
+    style="margin-bottom: 10px; margin-top: 10px; background-color: white;">
+    <h2 class="w3-jumbo w3-padding-16 text-white border-1">Highlights</h2>
+    <hr>
+    <div class="w3-row" style="margin-top:40px;">
+      <div class="w3-col s3">
+        <i class="fa fa-download w3-text-orange w3-jumbo"></i>
+        <p><b>19.12Mb</b></p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-globe w3-text-red w3-jumbo"></i>
+        <p><b>Web App</b></p>
+      </div>
+      <div class="w3-col s3">
+        <i class="material-icons w3-text-green w3-jumbo">new_releases</i>
+        <p><b>New</b></p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-bell w3-text-blue w3-jumbo"></i>
+        <p><b>Get Notified</b></p>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <!-- Clarity Section -->
+  <div class="w3-padding-64 w3-light-grey" id="description">
+    <div class="w3-row-padding">
+      <div class="w3-col l4 m6">
+        <!-- <video autoplay playsinline muted loop poster="https://d1csarkz8obe9u.cloudfront.net/embeddesigns/5c56d111571953353b1610b26bb2c06b_img_embed.jpg" class="w3-image w3-round-large w3-hide-small w3-grayscale" style="max-width:618;max-hight:800"><source src="https://d1csarkz8obe9u.cloudfront.net/embeddesigns/5c56d111571953353b1610b26bb2c06b_embed.mp4" type="video/mp4"></video> -->
+        <img class="w3-image w3-round-large w3-hide-small" src="rfgt.jpg" style="border-radius: 15px;" alt="App"
+          width="335" height="471">
+      </div>
+      <div class="w3-col l8 m6">
+        <h1 class="w3-jumbo d-inline-block"><b>Description</b></h1> <small>summary</small>
+        <h1 class="w3-xxxlarge w3-text-red"><b>All information of our apps</b></h1>
+        <p style="font-size: 20px;"><span class="w3-xlarge"></span> <mark>RF Gadgets Tech app is our new &amp; first app.</mark> Our
+          app purpose is to give our users
+          easy access to our websites &amp; Youtube channel. So you can easily read our new articles &amp; blogs of
+          different sites via an app.﻿ It is common but the main purpose of our app is to store and share my web
+          projects of programming and different created interesting web apps. You can access all of our free created
+          web apps that aren't need extra phone storage. Because our apps are stored on web servers. That means it's
+          our ALL IN ONE application. We don't need &amp; take to your any phone permission. Our app is safe &amp;
+          secure. Download our app to join us and access new web apps on the server. Our plan is to keep link more web
+          &amp; browsers apps &amp; games in an app and also let our visitors use with free of cost. </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="w3-container w3-padding-64 w3-dark-grey w3-center" id="features">
+    <h1 class="w3-jumbo"><b>Features</b></h1>
+    <p>This app is just for support us</p>
+
+    <div class="w3-row" style="margin-top:64px">
+      <div class="w3-col s3">
+        <i class="fa fa-bolt w3-text-orange w3-jumbo"></i>
+        <p>Fast</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-free-code-camp w3-text-red w3-jumbo"></i>
+        <p>Free</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-android w3-text-green w3-jumbo"></i>
+        <p>Android suitable</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-anchor w3-text-blue w3-jumbo"></i>
+        <p>Web Link</p>
+      </div>
+    </div>
+
+    <div class="w3-row" style="margin-top:64px">
+      <div class="w3-col s3">
+        <i class="fa fa-diamond w3-text-white w3-jumbo"></i>
+        <p>Sharp</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-cloud w3-text-blue w3-jumbo"></i>
+        <p>Cloud</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-globe w3-text-amber w3-jumbo"></i>
+        <p>Global</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-file-archive-o w3-text-cyan w3-jumbo"></i>
+        <p>Small</p>
+      </div>
+    </div>
+
+    <div class="w3-row" style="margin-top:64px">
+      <div class="w3-col s3">
+        <i class="fa fa-user w3-text-sand w3-jumbo"></i>
+        <p>Safe</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-shield w3-text-orange w3-jumbo"></i>
+        <p>Stabile</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-wifi w3-text-grey w3-jumbo"></i>
+        <p>Connected</p>
+      </div>
+      <div class="w3-col s3">
+        <i class="fa fa-support w3-text-green w3-jumbo"></i>
+        <p>Support</p>
+      </div>
+    </div>
+  </div>
+  <!-- What's new -->
+  <div class="card text-center my-2" id="whatNew">
+    <div class="card-header">
+      <b>What's new🔥</b>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Newly added features</h5>
+      <p class="card-text">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Bugfix
+          <span class="badge badge-primary badge-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Adding more web app plug-in
+          <span class="badge badge-primary badge-pill">2</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Adding Font customizer
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+      </ul>
+      </p>
+      <a href="http://rfgadgetstech.blogspot.com/" class="btn btn-primary">Our website</a>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+  <!-- Pricing Section -->
+  <div class="w3-container" id="glance">
+    <div class="w3-padding-64 w3-center w3-white">
+      <h1 class="w3-jumbo"><b>At a Glance</b></h1>
+      <p class="w3-large">See at a look</p>
+      <div class="w3-row-padding" style="margin-top:64px;">
+        <div class="w3-half w3-section mx-auto"></div>
+        <ul class="w3-ul w3-card w3-hover-shadow">
+          <li class="w3-green w3-xlarge w3-padding-32">Why Our App</li>
+          <li class="w3-padding-16"><b>Full</b> Free</li>
+          <li class="w3-padding-16"><b>Newly added</b> Features</li>
+          <li class="w3-padding-16"><b>Safe & Secure</b></li>
+          <li class="w3-padding-16"><b>Contact</b> us</li>
+          <li class="w3-padding-16">
+            <h2 class="w3-opacity">Support us</h2>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-green w3-padding-large"
+              onclick="document.getElementById('download').style.display='block'"><i class="fa fa-download"></i>
+              Download</button>
+          </li>
+        </ul>
+      </div>
+      <div class="w3-row-padding" style="margin-top:64px;" id="version">
+        <div class="w3-half w3-section mx-auto"></div>
+        <ul class="w3-ul w3-card w3-hover-shadow">
+          <li class="w3-red w3-xlarge w3-padding-32">Latest <small>v-2.0</small></li>
+          <li class="w3-padding-16"><b>Type:</b> Services & projects</li>
+          <li class="w3-padding-16"><b></b> Features</li>
+          <li class="w3-padding-16"><b>No</b> Ads</li>
+          <li class="w3-padding-16"><b>Get</b> Source Codes</li>
+          <li class="w3-padding-16">
+            <h2 class="w3-opacity">$0</h2>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-green w3-padding-large"
+              onclick="document.getElementById('download').style.display='block'"><i class="fa fa-download"></i>
+              Download</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- About Us -->
+  <div class="card container my-5" id="about">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><b>About Us</b></h5>
+      <p class="card-text font-weight-bold">We are Students of 9th Standard. So our app is not so special</p>
+    </div>
+    <h5 class="text-center">Purposes to make our app</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">To store and publish our new projects</li>
+      <li class="list-group-item">Share & discuss about our projects with our users</li>
+      <li class="list-group-item">Do our experimental projects publicly</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+  <hr>
+  <!-- Plan & others -->
+  <div class="container" id="plans">.
+    <div class="card text-white bg-primary mb-3 mx-4 my-2 d-inline-block fa-text-width" style="width: 100%;">
+      <div class="card-header">Plan</div>
+      <div class="card-body">
+        <h5 class="card-title">Future Plan</h5>
+        <p class="card-text">Make my app more suitable for web gaming
+          content.</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Contact Us -->
+  <h1 class="text-center" id="contact">Contact-us</h1>
+  <hr>
+  <div class="container my-3" style="width: 60%;">
+    <form>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault01">User Name</label>
+          <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault02">Email</label>
+          <input type="email" class="form-control" id="validationDefault02" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+  </div>
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge" id="footer">
+    <div class="container text-center">
+      <p class="text-center" style="font-size: 15px;"><b>Offered by: RF Gadgets Tech
+          <br>
+          Created by: Fahad
+          <br>
+          Released on: 15 August 2020</b></p>
+    </div>
+    <div class="w3-section">
+      <a href="http://facebook.com/RFGadgetsTech">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      </a>
+      <a href="http://instagram.cpm">
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+      </a>
+      <a href="http://github.com/rf-fahad-islam">
+        <i class="fa fa-github w3-hover-opacity"></i>
+      </a>
+      <a href="http://twitter.com/GadgetsRF">
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+      </a>
+      <a href="">
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </a>
+    </div>
+    <p class="w3-medium">©RF Gadgets Tech | 2020-2021 | rsfahad97@gmail.com <span>Powered by <a
+          href="https://www.w3schools.com/w3css/default.asp" target="_blank"
+          class="w3-hover-text-green">w3.css</a></span></p>
+  </footer>
+
+  <script>
+    // Slideshow
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      if (n > x.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = x.length }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      x[slideIndex - 1].style.display = "block";
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
