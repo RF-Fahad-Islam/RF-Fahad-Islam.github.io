@@ -1,0 +1,31 @@
+body{
+    background-color: slateblue
+}
+.whiteBox{
+ width: 175px;
+ height: 175px;
+ background-color: white;
+ border: 2px solid black;
+ margin: 12px;
+ display: inline-block;
+}
+.imgBox {
+    width: 165px;
+    height: 165px;
+    top: 5px;
+    left: 5px;
+    background-image: url('me.jpg');
+    background-size: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.hold{
+    border: 2px solid red;
+}
+.d-none {
+display: none;
+}
+.hover {
+    background-color: violet;
+    border-style: dashed;
+}

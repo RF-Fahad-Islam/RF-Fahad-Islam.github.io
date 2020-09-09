@@ -23,11 +23,30 @@ addBtn.addEventListener('click',function(e) {
      title: addTitle.value,
      text: addTxt.value
  };
- notesObj.push(obj);
- notes = localStorage.setItem('notes',JSON.stringify(notesObj));
- addTxt.value = '';
- addTitle.value = '';
+ let message = document.getElementById('message');
+ if (addTitle.value.length != 0 && addTxt.value.length != 0) {
+     notesObj.push(obj);
+     notes = localStorage.setItem('notes',JSON.stringify(notesObj));
+     addTxt.value = '';
+     addTitle.value = '';
+     setTimeout(() => {
+         message.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+         <strong>Success!</strong>Your to-do has been successfully added.
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+         </button>
+         </div>`
+     }, 3000);
+ } else {
+    message.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> Please write something on the note title and description.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>`
+ }
  showNotes();
+ e.preventDefault();
 });
 
 //for showing notes
@@ -47,12 +66,12 @@ function showNotes() {
         let m = date.getMonth();
         let y = date.getFullYear();
         let today = d+"/"+m+"/"+y;
-        html += ` <div class="noteCard card mx-3 my-2" style="width: 20rem;">
+        html += ` <div class="noteCard card mx-3 my-2" style="width: 25rem;">
         <div class="card-body">
             <h5 class="card-title d-inline-block">${element.title}</h5>
             <span class="card-text d-inline" style="border: 1px solid black">${today}</span>
             <p class="card-text">${element.text}</p>
-            <button id="${index}" onclick = "deleteNote()" class="btn btn-danger">Delete</button>
+            <button id="${index}" onclick = "deleteNote(this.id)" class="btn btn-danger">Delete</button>
             <button class="btn btn-primary" onclick="mark(${index})">Mark</button>
         </div>
         </div>`
@@ -100,23 +119,27 @@ if (delConfirm == true){
 }
 
 // mark as important
-function mark(index) {
+function mark(index, e) {
+    e.preventDefault();
     let noteCard = document.getElementsByClassName('noteCard');
     noteCard[index].setAttribute('style','color: red; border: 2px solid red');
     showNotes();
 }
 
 //search feature
-let searchTxt = document.getElementById('searchTxt');
+let searchBtn = document.getElementById('searchBtn');
 //event listener
-searchTxt.addEventListener('input', function() {
+searchBtn.addEventListener('click', function(e) {
+    let searchTxt = document.getElementById('searchTxt');
+    e.preventDefault();
     let searchItem = document.getElementsByClassName('noteCard');
     Array.from(searchItem).forEach(function(element){
         let pElm = element.getElementsByTagName('p')[0];
+        let hElm = element.getElementsByTagName('h5')[0];
         let sElm = element.getElementsByTagName('span')[0];
         inputVal = searchTxt.value;
         //if includes then show
-        if (pElm.innerText.includes(inputVal)|| sElm.innerText.includes(inputVal)) {
+        if (pElm.innerText.includes(inputVal)|| sElm.innerText.includes(inputVal)|| hElm.innerText.includes(inputVal)) {
             element.style.display = "block";
         }
         else {
