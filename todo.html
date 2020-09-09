@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
-        /* #thead {
+        #thead {
             display: none;
-        } */
+        }
     </style>
 </head>
 
@@ -52,13 +52,13 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" id="searchTxt" placeholder="Search by notes, dates"
+                <input class="form-control mr-sm-2" type="search" id="searchTxt" placeholder="Search by to-do, # , dates"
                     aria-label="Search">
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-success my-2 my-sm-0">Search</button>
             </form>
         </div>
     </nav>
-    <div class="container mx-auto">
+    <div class="container mx-auto" id="message">
     </div>
     <div class="container my-2" id="Home">
         <h1 class="text-center">Welcome to our <b style="font-style: italic;">TO_DO List App</b><sup
@@ -79,15 +79,15 @@
                         tidy</small>
                 </div>
                 <button id="addBtn" class="btn btn-primary">Add To-Do</button>
-                <button type="button" class="btn btn-outline-danger mx-auto mx-5" style="right: 0px;"
+                <button type="button" class="btn btn-outline-danger my-2 mx-5" style="right: 0px;"
             onclick="deleteAll()">Delete All To-Do's!</button>
             </div>
         </div>
         <hr>
         <h1 class="text-center">Your To-Do's</h1>
+        <div id="todo"></div>
         <div class="container">
             <hr>
-            <div id="todo"></div>
             <table class="table">
                 <thead class="thead-light" id="thead">
                     <tr>
@@ -99,7 +99,6 @@
                     </tr>
                 </thead>
                 <tbody id="tbody">
-
                 </tbody>
             </table>
         </div>

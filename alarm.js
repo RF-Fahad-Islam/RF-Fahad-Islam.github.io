@@ -31,7 +31,7 @@ function setAlarm(e) {
         alarm.classList.add('is-valid');
     } else {
         alarmHelp.innerHTML = `<b style="color: red;">Time is Invalid. Set a future Time.</b>`
-        message.innerHTML = `<b style="color: red;">Cannot set alarm on ${alarmTime.toLocaleDateString()}<hr>Time: ${alarmTime.toLocaleTimeString()}</b><hr>`
+        message.innerHTML = `<b style="color: red;">Cannot set alarm on: ${alarmTime}</b>`
         alarm.classList.add('is-invalid');
         alarm.classList.remove('is-valid');
         status.innerHTML = `<b style="color: red; background-color: white;">Error! Time cannot display. {>.._..<}`
@@ -46,8 +46,28 @@ function statusBar(time) {
             setInterval(() => {
                 now = new Date();
                 leftTime = time - now;
+                let timeState = leftTime / 1000;
                 let second = leftTime / 1000;
-                status.innerHTML = `<b>Time left: ${second}s</b>`
+                let state = 's';
+                if (timeState < 0) {
+                    timeState = 'NAN'
+                }
+                if (timeState > 60) {
+                    timeState = timeState / 60;
+                    timeState = timeState.toFixed(3);
+                    state = 'm'
+                    if (timeState > 60) {
+                        timeState = timeState / 60;
+                        timeState = timeState.toFixed(3);
+                        state = 'h'
+                    }
+                    if (timeState > 24) {
+                        timeState = timeState / 60;
+                        timeState = timeState.toFixed(3);
+                        state = 'days'
+                    }
+                }
+                status.innerHTML = `<b>Time left: ${timeState}${state}</b>`
             }, 100);
         } else {
             status.innerHTML = `<b>Time Left: 0s;</b>`
