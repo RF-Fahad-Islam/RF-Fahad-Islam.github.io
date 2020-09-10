@@ -6,8 +6,10 @@
      display: inline-block;
      background-color: #c6c4c4;
      border: 4px solid black;
-     padding: 20px;
-     border-radius: 34px;
+     padding: 32px;
+     border-radius: 38px;
+     box-shadow: 0px 8px 16px #807c7c;
+     font-family: 'Courier New', Courier, monospace;
  }
 
  .btnTable {
@@ -15,12 +17,13 @@
  }
 
  #screen {
-     width: 274px;
+     width: 362px;
      height: 49px;
      margin: 0px;
      font-size: 30px;
      margin-bottom: 14px;
      border-radius: 12px;
+     text-align: left;
  }
 
  .clearBtn {
@@ -44,6 +47,7 @@
      background-color: rgb(160, 160, 160);
      border-radius: 8px;
      text-decoration: none;
+     border: none;
  }
  button:hover{
      background-color: #f1f1f1;

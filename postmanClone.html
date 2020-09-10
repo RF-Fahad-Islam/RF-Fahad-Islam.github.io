@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        /* body{
+        overflow-x: hidden;
+    } */
+        #responsePre {
+            max-height: 586px;
+            max-width: 1139px;
+            display: block;
+            margin: auto;
+            align-self: center;
+        }
+
+        #responseBox {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <title>Postman Clone</title>
+</head>
+
+<body>
+    <!-- Postman clone navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Postman Clone</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Easily fetch request API with "GET or POST"
+            </span>
+        </div>
+    </nav>
+    <!-- main container -->
+    <div class="container my-3">
+        <!-- main heading -->
+        <h1 class="text-center">Postman Clone</h1>
+        <!-- URL input box -->
+        <div class="form-group row my-3">
+            <label for="inputUrl" class="col-sm-2 col-form-label">URL</label>
+            <div class="col-sm-10">
+                <input type="url" class="form-control" id="inputUrl" required>
+            </div>
+        </div>
+        <!-- request-type radio buttons -->
+        <fieldset class="form-group">
+            <div class="form-group row">
+                <legend class="col-form-label col-sm-2 pt-0">Request Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requestType" id="GET" value="GET">
+                        <label class="form-check-label" for="GET">
+                            GET
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requestType" id="POST" value="POST" checked>
+                        <label class="form-check-label" for="POST">
+                            POST
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- Content Type - radio buttons -->
+        <fieldset class="form-group" id="contentBox">
+            <div class="form-group row">
+                <legend class="col-form-label col-sm-2 pt-0">Content Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contentType" id="requestJson" value="Json"
+                            checked>
+                        <label class="form-check-label" for="requestJson">
+                            JSON
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contentType" id="requestCustomParams"
+                            value="customParams">
+                        <label class="form-check-label" for="requestCustomParams">
+                            Custom Parameter
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- parameter box -->
+        <div id="requestParamsBox">
+            <div class="form-row">
+                <label for="parameterKey1" class="col-sm-2 col-form-label">Parameter-1</label>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter Parameter-1 key" id="parameterKey1">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter Parameter-1 value" id="parameterValue1">
+                </div>
+                <button class="btn btn-primary" id="addParam">+</button>
+                <button class="btn btn-outline-danger mx-3 d-none" id="deleteAll">Delete all</button>
+            </div>
+            <div id="addedParams"></div>
+        </div>
+        <!-- Json request box -->
+        <div class="my-3" id="requestJsonBox">
+            <div class="form-group row">
+                <label for="requestJsonText" class="col-sm-2 col-form-label">Enter Request Json</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="requestJsonText" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="form-group row my-2">
+            <div class="col-sm-10">
+                <button id="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <hr>
+        <!-- Response Box -->
+        <h5 class="text-center">Response</h5>
+        <hr>
+        <div id="message"></div>
+    </div>
+    <div class="my-3" id="responseBox">
+        <div class="col-sm-10">
+            <pre id='responsePre'
+                class="language-javascript"> <code id='responseJsonText' class="language-Json"> Your response will appear here </code> </pre>
+        </div>
+        <!-- Optional JavaScript -->
+        <script src="postmanClone.js"></script>
+        <script src="prism.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

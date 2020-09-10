@@ -31,10 +31,10 @@ function setAlarm(e) {
         alarm.classList.add('is-valid');
     } else {
         alarmHelp.innerHTML = `<b style="color: red;">Time is Invalid. Set a future Time.</b>`
-        message.innerHTML = `<b style="color: red;">Cannot set alarm on: ${alarmTime}</b>`
+        message.innerHTML = `<b style="color: red;">Cannot set  alarm on ${alarmTime.toLocaleDateString()}<hr>Time: ${alarmTime.toLocaleTimeString()}</b><hr>`
         alarm.classList.add('is-invalid');
         alarm.classList.remove('is-valid');
-        status.innerHTML = `<b style="color: red; background-color: white;">Error! Time cannot display. {>.._..<}`
+        status.innerHTML = `<b style="color: red; background-color: white;">Error! Time cannot display. {>.._..<} <hr> Reason: You enter a past Time or date`
     }
 }
 //showing the time on status bar
@@ -64,7 +64,7 @@ function statusBar(time) {
                     if (timeState > 24) {
                         timeState = timeState / 60;
                         timeState = timeState.toFixed(3);
-                        state = 'days'
+                        state = 'd'
                     }
                 }
                 status.innerHTML = `<b>Time left: ${timeState}${state}</b>`
