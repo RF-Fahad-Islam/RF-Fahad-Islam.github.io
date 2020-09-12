@@ -1,5 +1,35 @@
-let audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
-console.log('This is alarm.js');
+let ringtones = document.getElementById('inputRingtones');
+let demo = document.getElementById('demo');
+let test = document.getElementById('stop');
+let optDiv = document.getElementById('optDiv');
+function check() {
+    if (ringtones.value === "sevish") {
+        console.log("carSound");
+         audio = new Audio("http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3");
+    }
+    else if(ringtones.value === "engine"){
+        audio = new Audio("http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/fx/engine-12.ogg");
+    }
+    else if(ringtones.value === "background"){
+        audio = new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3");
+    }
+    else if(ringtones.value === "crumb"){
+        audio = new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Crumble%20Sound.mp3");
+    }
+    else {
+        console.log('else');
+    audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+    }
+}
+
+
+demo.addEventListener('click', ()=> {
+    check();
+    audio.play();
+})
+test.addEventListener('click', ()=> {
+   location.reload();
+})
 // audio.play();
 //grab documents contents
 let alarm = document.getElementById('alarm');
@@ -12,6 +42,8 @@ let alarmHelp = document.getElementById('alarmHelp');
 alarmBtn.addEventListener('click', setAlarm);
 
 function setAlarm(e) {
+    check()
+    console.log('This is alarm.js');
     e.preventDefault();
     let alarmTime = new Date(alarm.value);
     let now = new Date();
@@ -78,6 +110,7 @@ function statusBar(time) {
 
 function audioPlay() {
     audio.play();
+    audio.loop();
 }
 stop.addEventListener('click', (e) => {
     e.preventDefault();
