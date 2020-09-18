@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <title>Age Calculator</title>
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container my-3">
+    <h3 class="text-center alert-success">Age Calculator <small class="text-small" style="font-size: 20px;">Made by
+        Fahad</small></h1>
+      <form id="vatCalculator">
+        <div class="card">
+          <h5 class="card-header">Age Calculator</h5>
+          <div class="card-body">
+            <label for="Vat">Choose Your birth-date</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label for="givenDateInput"><span class="input-group-text">🎂</span></label>
+              </div>
+              <input type="date" class="form-control" id="givenDateInput" placeholder="0$ / 0Taka"
+                aria-label="Amount (to the nearest dollar)">
+              <div class="input-group-append">
+                <label for="givenDateInput"><span class="input-group-text">🎂</span></label>
+              </div>
+            </div>
+            <label for="currentDateInput">Choose a date to compare</label>
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <div class="input-group-prepend">
+                  <label for="currentDateInput"><span class="input-group-text">⚡</span></label>
+                </div>
+              </div>
+              <input type="date" class="form-control" id="currentDateInput" aria-label="birth-date">
+              <div class="input-group-append">
+                <div class="input-group-prepend">
+                  <label for="currentDateInput"><span class="input-group-text">⚡</span></label>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-warning" id="calculate">Calculate</button>
+            <button type="reset" class="btn btn-danger" id="reset">Reset</button>
+      </form>
+  </div>
+  <!-- results container -->
+  <div class="container my-3">
+    <div class="card">
+      <div class="card-header">
+        Results
+      </div>
+      <div class="card-body bg-light" id="display">
+        <h6 class="text-center" id="temper">Your Results will apear here.</h6>
+      </div>
+    </div>
+  </div>
+  <div class="container my-3" id="statistics">
+    <div id="printBtn"></div>
+  </div>
+  <!-- Optional JavaScript -->
+  <script src="agecalculator.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
