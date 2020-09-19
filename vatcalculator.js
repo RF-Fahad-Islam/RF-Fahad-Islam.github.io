@@ -31,10 +31,10 @@ function calculateVat() {
   temper.style.display = 'none';
   display.innerHTML += `<h4 class="card-text my-3">
     <ul class="list-group">
-    <li class="list-group-item bg-warning">Gross amount (${operation.value}):   <span class="font-weigth-bold" id="gross">${type} Taka</span></li>
-      <li class="list-group-item">Amount :   <span class="font-weigth-bold" id="netAmount">${A} Taka</span></li>
+    <li class="list-group-item bg-warning">Gross amount (${operation.value}):   <span class="font-weigth-bold" id="gross">${type} $</span></li>
+      <li class="list-group-item">Amount :   <span class="font-weigth-bold" id="netAmount">${A} $</span></li>
       <li class="list-group-item">VAT :   <span class="font-weigth-bold" id="vat">(${V}%)</span></li>
-      <li class="list-group-item">VAT value :   <span class="font-weigth-bold" id="operationType">${formula}</span></li>
+      <li class="list-group-item">VAT value :   <span class="font-weigth-bold" id="operationType">${formula} $</span></li>
     </ul>
   </h4>`
 }

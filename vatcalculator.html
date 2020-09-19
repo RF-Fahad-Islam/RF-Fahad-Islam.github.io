@@ -15,6 +15,11 @@
     * {
       font-family: 'Roboto', sans-serif;
     }
+    @media screen and (max-width: 400px){
+      h4 {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 
@@ -24,7 +29,7 @@
         Fahad</small></h1>
       <form id="vatCalculator">
         <div class="card">
-          <h5 class="card-header">VAT Converter</h5>
+          <h5 class="card-header">VAT Calculator</h5>
           <div class="card-body">
             <label for="amountInput">Amount</label>
             <div class="input-group mb-3">
@@ -53,12 +58,11 @@
               </div>
               <select class="custom-select" id="operation">
                 <option value="added" selected>Added(Included) VAT</option>
-                <option value="excluded">Exclude(substract) VAT</option>
+                <option value="excluded">Exclude(subtract) VAT</option>
               </select>
             </div>
             <button class="btn btn-warning" id="calculate">Calculate</button>
             <button type="reset" class="btn btn-danger" id="reset">Reset</button>
-            <button class="my-3 btn btn-light font-weight-bold" id="formula">Check Out More</button>
       </form>
   </div>
   <hr>

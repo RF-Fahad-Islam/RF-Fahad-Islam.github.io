@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
@@ -15,11 +16,29 @@
     * {
       font-family: 'Roboto', sans-serif;
     }
+
+    @media screen and (max-width: 600px) {
+      h4 {
+        font-size: 20px;
+        font-family: 'Roboto';
+      }
+      .age{
+        font-size: 15px;
+      }
+      h2{
+        font-size: 20px;
+      }
+    }
+    /* @media print {
+      #non-printable {
+        display: none;
+      }
+    } */
   </style>
 </head>
 
 <body>
-  <div class="container my-3">
+  <div class="container my-3" id="non-printable">
     <h3 class="text-center alert-success">Age Calculator <small class="text-small" style="font-size: 20px;">Made by
         Fahad</small></h1>
       <form id="vatCalculator">
@@ -56,18 +75,21 @@
       </form>
   </div>
   <!-- results container -->
-  <div class="container my-3">
-    <div class="card">
-      <div class="card-header">
-        Results
-      </div>
-      <div class="card-body bg-light" id="display">
-        <h6 class="text-center" id="temper">Your Results will apear here.</h6>
+  <div id="printable">
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-header">
+          Results
+        </div>
+        <div class="card-body bg-light" id="display">
+          <h6 class="text-center" id="temper">Your Results will apear here.</h6>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container my-3" id="statistics">
-    <div id="printBtn"></div>
+    <div class="container my-3" id="statistics">
+      <div id="printBtn">
+      </div>
+    </div>
   </div>
   <!-- Optional JavaScript -->
   <script src="agecalculator.js"></script>
