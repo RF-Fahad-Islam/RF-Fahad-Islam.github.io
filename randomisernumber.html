@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <title>Randomize Number</title>
+</head>
+
+<body>
+  <h3 class="text-center">Random Number Generator</h3>
+  <form>
+    <div class="container my-3">
+      <div class="card">
+        <h5 class="card-header">Featured</h5>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="firstNumber">First number</label>
+              <input type="number" class="form-control" id="firstNumber" placeholder="Enter the start number">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastNumber">Last number</label>
+              <input type="number" class="form-control" id="lastNumber" placeholder="Enter the end number">
+            </div>
+          </div>
+          <button class="btn btn-primary" id="generate">Generate</button>
+          <button class="btn btn-outline-primary" id="refresh" onclick="location.reload();">Refresh</button>
+        </div>
+      </div>
+  </form>
+  <div class="container my-5">
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">Number Randomize screen</h5>
+        <hr>
+        <ul class="list-group" id="screen">
+          <li class="list-group-item active text-center" id="state">Randomize 0 to 1</li>
+        </ul>
+        <hr>
+        <div class="container">
+          <a class="btn btn-outline-primary d-block mx-auto" id="more">More</a>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        Just now
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <script src="randomisernumber.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
