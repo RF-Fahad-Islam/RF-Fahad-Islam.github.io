@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Tip Calculator</title>
+</head>
+
+<body>
+    <h1 class="text-center">Tip Calculator</h1>
+    <form>
+        <div class="container my-3 d-flex justify-content-center flex-wrap">
+            <div class="card my-3" style="width: 30rem;">
+                <div class="card-body">
+                    <h3 class="text-center">Tip Calculator</h3>
+                    <hr>
+                    <h5 class="card-title">Bill</h5>
+                    <div class="input-group mb-3 my-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" placeholder="0" step="0.5" min="1" class="form-control" id="inputBill" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <h5 class="card-title">Tip (%)</h5>
+                    <div class="input-group mb-3 my-3">
+                        <div class="input-group-append valChanger">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="document.getElementById('inputTip').value--">-</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="Please enter a percentage (%)"
+                            id="inputTip" min="1" max="100" aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-prepend valChanger">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="document.getElementById('inputTip').value++">+</span>
+                        </div>
+                    </div>
+                    <h5 class="card-title">Number Of People</h5>
+                    <div class="input-group mb-3 my-3">
+                        <div class="input-group-append valChanger">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="document.getElementById('inputNumber').value--"
+                                style="font-size: 20px;">-</span>
+                        </div>
+                        <input type="number" id="inputNumber" min="1" placeholder="Please enter numbers of people"
+                            class="form-control" value="1" />
+                        <div class="input-group-prepend valChanger">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="document.getElementById('inputNumber').value++">+</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" id="calculateTip">Calculate</button>
+                    <button class="btn btn-danger" type="reset">Reset</button>
+                </div>
+            </div>
+            <!-- The tip result -->
+            <div class="card my-3" style="width: 30rem;">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Tip Result</h3>
+                    <hr>
+                    <div class="my-5">
+                        <h4 class="d-inline-block">Tip:</h4>
+                        <h4 class="d-inline-block font-weight-bold position-relative float-right"
+                            style="font-size: 2.3rem;" id="tipAmount">$0</h4>
+                        <h6 class="card-subtitle mb-2 text-muted" id="tipState">single</h6>
+                        <hr>
+                        <h4 class="d-inline-block">Total:</h4>
+                        <h4 class="d-inline-block font-weight-bold position-relative float-right"
+                            style="font-size: 2.5rem;" id="totalAmount">
+                            $0
+                        </h4>
+                        <h6 class="card-subtitle mb-2 text-muted" id="totalState">single</h6>
+                        <hr>
+                        <div class="d-block position-relative" style="bottom: 0px;">
+                            <button class="btn btn-outline-warning" type="submit"
+                                onclick="location.reload();">Reload</button>
+                            <button class="btn btn-outline-success position-relative float-right" type="submit"
+                                onclick="window.print();">Print/Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Optional JavaScript -->
+    <script src="tipcalculator.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
