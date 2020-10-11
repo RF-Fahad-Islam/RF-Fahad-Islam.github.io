@@ -7,7 +7,8 @@ let tipAmount = document.getElementById('tipAmount');
 let totalAmount = document.getElementById('totalAmount');
 let totalState = document.getElementById('totalState');
 let tipState = document.getElementById('tipState');
-let inputs = document.getElementsByClassName('form-control');
+let input = document.getElementsByClassName('form-control');
+let valChanger = document.getElementsByClassName('valChanger');
 let click = 0;
 //add listener to click for calculation
 calculateTip.addEventListener('click', (e) => {
@@ -23,9 +24,18 @@ inputBill.addEventListener('input', () => {
     }
 });
 // live cahnge on click and change the values
-for (const item of inputs) {
+for (const item of input) {
     item.addEventListener('input', () => {
         // console.log("clicked");
+        if (click != 0) {
+            calculateTipFunc();
+        }
+    });
+}
+for (const changer of valChanger) {
+    changer.addEventListener('click', (e) => {
+        // console.log("clicked");
+        e.preventDefault();
         if (click != 0) {
             calculateTipFunc();
         }
@@ -45,8 +55,10 @@ function calculateTipFunc() {
         totalPerPerson = inputBill.value;
         tipPerPerson = "00.00";
     }
-    if (inputNumber.value != 1) {
+    if (inputNumber.value != 1 && inputNumber.value != 0) {
         state = 'Per person';
+    } else if (inputNumber.value === 0 || inputNumber.value === 'undefined') {
+        state = 'Enter Person Number';
     } else {
         state = 'Single';
     }

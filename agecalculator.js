@@ -33,18 +33,17 @@ function calculateAge() {
   let calculateMonth;
   let calculateYear;
   if (givenDate > currentDate) {
-    calculateDate = Math.abs(30 - (givenDate - (currentDate + 1)));
-    calculateMonth++;
+    calculateDate = Math.abs(30 - (givenDate - (currentDate+1)));
+    givenMonth++;
     console.log("Date", calculateDate);
   } else {
     calculateDate = Math.abs(currentDate - givenDate);
     console.log("Date", calculateDate);
-    calculateMonth++;
   }
   //compare month
   if (givenMonth > currentMonth) {
     calculateMonth = 12 - (givenMonth - currentMonth);
-    calculateYear++;
+    givenYear++;
     console.log("Month", calculateMonth);
   } else {
     calculateMonth = currentMonth - givenMonth;
