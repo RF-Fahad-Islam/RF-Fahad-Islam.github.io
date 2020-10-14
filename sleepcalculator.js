@@ -92,24 +92,27 @@ function calculateTime() {
 
         icon = 'bed';
         textColor = 'success';
+        signName = "minus"
     } else if (checkedValue === "WT") {
         icon = 'sun-o';
         textColor = 'warning';
-        
+        signName = "plus"
+
         XTime = inputSTime;
         boldText = "Wake At :"
-        
+
         givenInputText1 = "Sleep At: "
         givenInputText2 = "Sleep Duration: "
-        
+
         givenInputValue1 = inputSTime.value;
         givenInputValue2 = getSleepDuration(durationHour, durationMinute);
-        
+
         hour = durationHour;
         minute = durationMinute;
     } else if (checkedValue === "SD") {
         icon = 'clock-o';
         textColor = 'danger';
+        signName = "minus"
 
         XTime = inputWTime;
         XTime2 = inputSTime;
@@ -134,40 +137,37 @@ function calculateTime() {
     //TODO:For Hour
     if (givenHour < hour) {
         calculatedHour = Number((givenHour + 24) - hour);
-        if (checkedValue === "WT") {
-            calculatedHour = Number(givenHour + hour)
+    } else if (checkedValue === "WT") {
+        let subH = Number(givenHour + hour);
+            calculatedHour = subH;
+        if (calculatedHour > 23) {
+            calculatedHour = Number(subH - 24)
         }
     } else {
-        calculatedHour = Number(givenHour - hour);
-        if (checkedValue === "WT") {
-            calculatedHour = Number(Number(givenHour + hour) - 24)
-        }
+        calculatedHour = subH;
     }
+
+
     //TODO:For Minute
     if (givenMinute < minute) {
         calculatedMinute = Number((givenMinute + 60) - minute);
         calculatedHour--;
-        if (checkedValue === "WT") {
-            let sub = Number(givenMinute + minute)
-            if (sub > 60) {
-                calculatedMinute = sub - 60;
-                calculatedHour++;
-            }
+    } else if (checkedValue === "WT") {
+        let sub = Number(givenMinute + minute);
+        if (sub > 59) {
+            calculatedMinute = Number(sub - 60);
+            calculatedHour++;
+        } else {
+            calculatedMinute = sub;
         }
     } else {
         calculatedMinute = Number(givenMinute - minute);
-        if (checkedValue === "WT") {
-            let sub = Number(givenMinute + minute)
-            if (sub > 60) {
-                calculatedMinute = sub - 60;
-                calculatedHour++;
-            }
-        }
     }
+
     //TODO:To get AM and PM according to hour or local time
     let state;
     if (calculatedHour > 12) {
-        calculatedHour = Number(calculatedHour) - 12;
+        calculatedHour = (calculatedHour) - 12;
         state = "PM"
     } else if (calculatedHour === 0) {
         calculatedHour = 12;
@@ -211,7 +211,7 @@ function calculateTime() {
                     <h5 class="d-inline-block">${givenInputText2}</h4>
                         <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
                             style="font-size: 1.5rem;" id="SD">
-                           ${givenInputValue2}
+                          <i class="fa fa-${signName}"></i> ${givenInputValue2}
                         </h5>
                         <hr>
                         <div class="d-block position-relative" style="bottom: 0px;">
