@@ -136,23 +136,24 @@ function calculateTime() {
 
     let calculatedHour;
     let calculatedMinute;
-    //TODO:For Hour
-    if (givenHour < hour) {
-        calculatedHour = Number((givenHour + 24) - hour);
+    //TODO:For Hour according to calculate type
+    if (checkedValue === "BT" || checkedValue === "SD") {
+        if (givenHour < hour) {
+            calculatedHour = Number((givenHour + 24) - hour);
+        } else {
+            calculatedHour = Number(givenHour - hour);
+        }
     } else if (checkedValue === "WT") {
         let subH = Number(givenHour + hour);
         calculatedHour = subH;
         if (calculatedHour > 23) {
             calculatedHour = Number(subH - 24)
         }
-    } else {
-        calculatedHour = Number(givenHour - hour);
     }
 
 
-    //TODO:For Minute
-    if (checkedValue === "BT") {
-
+    //TODO:For Minute according to calculate type
+    if (checkedValue === "BT" || checkedValue === "SD") {
         if (givenMinute < minute) {
             calculatedMinute = Number((givenMinute + 60) - minute);
             calculatedHour--;
@@ -161,7 +162,6 @@ function calculateTime() {
         }
 
     } else if (checkedValue === "WT") {
-
         let sub = Number(givenMinute + minute);
         if (sub > 59) {
             calculatedMinute = Number(sub - 60);
@@ -171,11 +171,11 @@ function calculateTime() {
         }
     }
     let calculation;
-
+    //!When it is BT & WT Type
+    let state;
     if (checkedValue === "BT" || checkedValue === "WT") {
 
         //TODO:To get AM and PM according to hour or local time
-        let state;
         if (calculatedHour > 12) {
             calculatedHour = (calculatedHour) - 12;
             state = "PM"
@@ -188,19 +188,25 @@ function calculateTime() {
         } else {
             state = "AM"
         }
+    }
 
-        //TODO: Add 0 for single digit
-        //Hour
-        if (calculatedHour < 10) {
-            calculatedHour = `0${calculatedHour}`;
-        }
+    //TODO: Add 0 for single digit
+    //Hour
+    if (calculatedHour < 10) {
+        calculatedHour = `0${calculatedHour}`;
+    }
 
-        //Minute
-        if (calculatedMinute < 10) {
-            calculatedMinute = `0${calculatedMinute}`;
-        }
+    //Minute
+    if (calculatedMinute < 10) {
+        calculatedMinute = `0${calculatedMinute}`;
+    }
+
+    if (checkedValue === "WT" || checkedValue === "BT") {
         calculation = `${calculatedHour}:${calculatedMinute} ${state}`;
     } else if (checkedValue === "SD") {
+        if (calculatedHour === "00") {
+            calculatedHour = 24;
+        }
         calculation = getSleepDuration(calculatedHour, calculatedMinute);
     }
     console.log(hour, minute, givenHour, givenMinute, calculatedHour, calculatedMinute, calculation);
