@@ -16,15 +16,131 @@
     .box-shadow:hover {
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     }
+
+    .phone {
+        display: none;
+    }
+
+    @media screen and (min-width: 462px) {
+
+        #WT,
+        span.sleepResult,
+        sup>i.fa {
+            font-size: 2rem;
+        }
+
+        #SD {
+            font-size: 1.5rem;
+        }
+    }
+
+    /* //large phone */
+    @media screen and (max-width: 460px) and (min-width: 374px) {
+        .heading {
+            display: none;
+        }
+
+        .phone {
+            display: inline-block;
+        }
+
+        #sleepResult,
+        sup>i.fa {
+            font-size: 1.7rem!important
+        }
+
+        h5#SD {
+            font-size: 17px!important;
+            margin-top: 6px;
+        }
+
+        sub.lg {
+            display: inline-block;
+        }
+    }
+
+    /* //medium phone */
+    @media screen and (max-width: 375px) and (min-width: 319px) {
+        .heading {
+            display: none;
+        }
+
+        .phone {
+            display: inline-block;
+        }
+
+        #sleepResult,
+        sup>i.fa {
+            font-size: 1.41rem!important
+        }
+
+        h5#SD {
+            font-size: 14px!important;
+            margin-top: 6px;
+        }
+
+        sub.lg {
+            display: none;
+        }
+
+        h5.d-inline-block {
+            font-size: 1rem;
+        }
+    }
+
+    /* //Small Phone */
+    @media screen and (max-width: 320px) {
+        .heading {
+            display: none;
+        }
+
+        #calculateTitle,
+        #WT,
+        #SD {
+            font-size: 1.2rem;
+        }
+
+        .phone {
+            display: inline-block;
+        }
+
+        .text-danger {
+            font-size: 0.8rem;
+        }
+
+        sub.lg {
+            display: none;
+        }
+
+        span {
+            font-size: 20px;
+        }
+
+        h5#WT,
+        span.sleepResult,
+        sup>i.fa {
+            font-size: 1rem;
+        }
+
+        h5#SD {
+            font-size: 13px!important;
+            margin-top: 6px;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+    }
 </style>
 
 <body>
-    <h1 class="text-center"><i class="fa fa-moon-o text-dark"></i> Sleep Calculator</h1>
+    <h1 class="text-center heading"><i class="fa fa-moon-o text-dark"></i> Sleep Calculator</h1>
     <form id="inputForm">
         <div class="container my-3 d-flex justify-content-center align-content-center flex-column flex-wrap">
             <div class="card my-3 box-shadow" style="width: 100%;">
                 <div class="card-body">
-                    <h3 class="text-center">Sleep Calculator</h3>
+                    <h3 class="text-center"><i class="fa fa-moon-o text-dark phone"></i> Sleep Calculator</h3>
                     <hr>
                     <div class="my-3 mx-auto d-block" id="radios">
                         <h5>Choose the calculate Type : </h5>
@@ -37,7 +153,7 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="calculateType" id="inlineRadio2"
-                                value="BT">
+                                value="BT" required>
                             <label class="form-check-label font-weight-bolder text-muted" for="inlineRadio2"><i
                                     class="fa fa-bed text-success"></i> BedTime</label>
                         </div>
@@ -54,7 +170,7 @@
                             <div class="input-group-prepend">
                                 <button class="input-group-text"><i class="fa fa-clock-o"></i></button>
                             </div>
-                            <input type="time" placeholder="0" class="form-control" id="inputWTime" />
+                            <input type="time" placeholder="0" class="form-control" id="inputWTime" required />
                             <div class="input-group-append">
                                 <button class="input-group-text"><i class="fa fa-clock-o"></i></button>
                             </div>
@@ -80,26 +196,28 @@
                         <div class="input-group mb-3 my-3">
                             <div class="input-group-append valChanger">
                                 <button class="input-group-text" style="cursor: pointer;"
-                                    onclick="document.getElementById('inputHour').value--"
-                                    style="font-size: 20px;">-</button>
+                                    onclick="document.getElementById('inputHour').value--" style="font-size: 20px;"><i
+                                        class="fa fa-minus"></i></button>
                             </div>
-                            <input type="number" id="inputHour" min="0" max="24" placeholder="Hour"
-                                class="form-control" />
+                            <input type="number" id="inputHour" min="0" max="24" placeholder="Hour" class="form-control"
+                                required />
                             <div class="input-group-prepend valChanger">
                                 <button class="input-group-text" style="cursor: pointer;"
-                                    onclick="document.getElementById('inputHour').value++">+</button>
+                                    onclick="document.getElementById('inputHour').value++"><i
+                                        class="fa fa-plus"></i></button>
                             </div>
                             <!-- TODO: Minutes -->
                             <div class="input-group-append valChanger" style="margin-left: 10px;">
                                 <button class="input-group-text" style="cursor: pointer;"
-                                    onclick="document.getElementById('inputMinute').value--"
-                                    style="font-size: 20px;">-</button>
+                                    onclick="document.getElementById('inputMinute').value--" style="font-size: 20px;"><i
+                                        class="fa fa-minus"></i></button>
                             </div>
                             <input type="number" id="inputMinute" min="1" max="59" placeholder="Minutes"
-                                class="form-control" />
+                                class="form-control" required />
                             <div class="input-group-prepend valChanger">
                                 <button class="input-group-text" style="cursor: pointer;"
-                                    onclick="document.getElementById('inputMinute').value++">+</button>
+                                    onclick="document.getElementById('inputMinute').value++"><i
+                                        class="fa fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -115,13 +233,20 @@
                 <div class="card-body">
                     <h3 class="card-title text-center"><i class="fa fa-calculator"></i> Result</h3>
                     <hr>
-                    <div id="result"><span class="alert alert-warning d-block font-weight-bolder">Your results will
-                            apear here.......</span></div>
+                    <div id="result">
+                        <p class="alert alert-warning d-block font-weight-bolder">Your results will
+                            apear here.......</p>
+                    </div>
                 </div>
             </div>
         </div>
         </div>
     </form>
+    <!-- footer -->
+    <footer class="container">
+        <p><i class="fa fa-thumb-tack"></i> © 2020-2021 | Owned By RF Fahad Islam | Made with JavaScript Language <i
+                class="fa fa-git-square"></i>
+    </footer>
     <!-- Optional JavaScript -->
     <script src="sleepcalculator.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

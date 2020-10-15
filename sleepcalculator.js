@@ -9,7 +9,6 @@ let buttons = document.getElementsByTagName('button');
 let WT = document.getElementById('WT');
 let SD = document.getElementById('SD');
 let SR = document.getElementById('sleepResult');
-
 //!All inputs 
 let inputWTime = document.getElementById('inputWTime');
 let inputSTime = document.getElementById('inputSTime');
@@ -139,12 +138,12 @@ function calculateTime() {
         calculatedHour = Number((givenHour + 24) - hour);
     } else if (checkedValue === "WT") {
         let subH = Number(givenHour + hour);
-            calculatedHour = subH;
+        calculatedHour = subH;
         if (calculatedHour > 23) {
             calculatedHour = Number(subH - 24)
         }
     } else {
-        calculatedHour = subH;
+        calculatedHour = Number(givenHour - hour);
     }
 
 
@@ -199,16 +198,16 @@ function calculateTime() {
     let html = `
 <div class="my-3 d-flex justify-content-center align-content-center flex-column">
                         <h3 class="card-title text-center" id="calculateTitle"> ${boldText} </h3>
-                        <h4 class="d-block font-weight-bold mx-auto" style="font-size: 3.5rem;">
+                        <h4 class="d-block font-weight-bold mx-auto" style="font-size: 2rem;">
                             <sup><i class="fa fa-${icon} text-${textColor}"></i></sup> <span id="sleepResult">${calculation}</span>
                         </h4>
                     </div>
                     <hr>
-                    <h5 class="d-inline-block">${givenInputText1} (24 Hours Format)</h5>
+                    <h5 class="d-inline-block">${givenInputText1} <sub class="lg">(24 Hours Format)<sub></h5>
                     <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
                         style="font-size: 2rem;" id="WT">${givenInputValue1}</h5>
                     <hr>
-                    <h5 class="d-inline-block">${givenInputText2}</h4>
+                    <h5 class="d-inline-block">${givenInputText2}</h5>
                         <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
                             style="font-size: 1.5rem;" id="SD">
                           <i class="fa fa-${signName}"></i> ${givenInputValue2}
