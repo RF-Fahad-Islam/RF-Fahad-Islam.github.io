@@ -9,6 +9,7 @@ let buttons = document.getElementsByTagName('button');
 let WT = document.getElementById('WT');
 let SD = document.getElementById('SD');
 let SR = document.getElementById('sleepResult');
+
 //!All inputs 
 let inputWTime = document.getElementById('inputWTime');
 let inputSTime = document.getElementById('inputSTime');
@@ -125,11 +126,13 @@ function calculateTime() {
 
         hour = Number(XTime2.value.charAt(0) + XTime2.value.charAt(1));
         minute = Number(XTime2.value.charAt(3) + XTime2.value.charAt(4));
+        console.log(` Hour ${hour} &  Minute ${minute}`);
     }
 
 
     givenHour = Number(XTime.value.charAt(0) + XTime.value.charAt(1));
     givenMinute = Number(XTime.value.charAt(3) + XTime.value.charAt(4));
+    console.log(`Given Hour ${givenHour} & Given Minute ${givenMinute}`);
 
     let calculatedHour;
     let calculatedMinute;
@@ -148,10 +151,17 @@ function calculateTime() {
 
 
     //TODO:For Minute
-    if (givenMinute < minute) {
-        calculatedMinute = Number((givenMinute + 60) - minute);
-        calculatedHour--;
+    if (checkedValue === "BT") {
+
+        if (givenMinute < minute) {
+            calculatedMinute = Number((givenMinute + 60) - minute);
+            calculatedHour--;
+        } else {
+            calculatedMinute = Number(givenMinute - minute);
+        }
+
     } else if (checkedValue === "WT") {
+
         let sub = Number(givenMinute + minute);
         if (sub > 59) {
             calculatedMinute = Number(sub - 60);
@@ -159,38 +169,38 @@ function calculateTime() {
         } else {
             calculatedMinute = sub;
         }
-    } else {
-        calculatedMinute = Number(givenMinute - minute);
-    }
-
-    //TODO:To get AM and PM according to hour or local time
-    let state;
-    if (calculatedHour > 12) {
-        calculatedHour = (calculatedHour) - 12;
-        state = "PM"
-    } else if (calculatedHour === 0) {
-        calculatedHour = 12;
-        state = "AM"
-    } else if (calculatedHour === 12) {
-        calculatedHour = 12;
-        state = "PM"
-    } else {
-        state = "AM"
-    }
-
-    //TODO: Add 0 for single digit
-    //Hour
-    if (calculatedHour < 10) {
-        calculatedHour = `0${calculatedHour}`;
-    }
-
-    //Minute
-    if (calculatedMinute < 10) {
-        calculatedMinute = `0${calculatedMinute}`;
     }
     let calculation;
-    calculation = `${calculatedHour}:${calculatedMinute} ${state}`;
-    if (checkedValue === "SD") {
+
+    if (checkedValue === "BT" || checkedValue === "WT") {
+
+        //TODO:To get AM and PM according to hour or local time
+        let state;
+        if (calculatedHour > 12) {
+            calculatedHour = (calculatedHour) - 12;
+            state = "PM"
+        } else if (calculatedHour === 0) {
+            calculatedHour = 12;
+            state = "AM"
+        } else if (calculatedHour === 12) {
+            calculatedHour = 12;
+            state = "PM"
+        } else {
+            state = "AM"
+        }
+
+        //TODO: Add 0 for single digit
+        //Hour
+        if (calculatedHour < 10) {
+            calculatedHour = `0${calculatedHour}`;
+        }
+
+        //Minute
+        if (calculatedMinute < 10) {
+            calculatedMinute = `0${calculatedMinute}`;
+        }
+        calculation = `${calculatedHour}:${calculatedMinute} ${state}`;
+    } else if (checkedValue === "SD") {
         calculation = getSleepDuration(calculatedHour, calculatedMinute);
     }
     console.log(hour, minute, givenHour, givenMinute, calculatedHour, calculatedMinute, calculation);
@@ -198,12 +208,12 @@ function calculateTime() {
     let html = `
 <div class="my-3 d-flex justify-content-center align-content-center flex-column">
                         <h3 class="card-title text-center" id="calculateTitle"> ${boldText} </h3>
-                        <h4 class="d-block font-weight-bold mx-auto" style="font-size: 2rem;">
+                        <h4 class="d-block font-weight-bold mx-auto" style="font-size: 1.5rem;">
                             <sup><i class="fa fa-${icon} text-${textColor}"></i></sup> <span id="sleepResult">${calculation}</span>
                         </h4>
                     </div>
                     <hr>
-                    <h5 class="d-inline-block">${givenInputText1} <sub class="lg">(24 Hours Format)<sub></h5>
+                    <h5 class="d-inline-block">${givenInputText1} (24 Hours Format)</h5>
                     <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
                         style="font-size: 2rem;" id="WT">${givenInputValue1}</h5>
                     <hr>
