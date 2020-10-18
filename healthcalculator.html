@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Health Calculator - Made By Fahad</title>
+</head>
+<style>
+    .box-shadow:hover {
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .phone {
+        display: none;
+    }
+
+    @media screen and (min-width: 462px) {
+
+        span#calorieResult,
+        sup>i.fa {
+            font-size: 2.5rem !important;
+        }
+
+        #SD {
+            font-size: 1.5rem;
+        }
+
+        h5.responsive {
+            font-size: 1rem !important;
+        }
+    }
+
+    /* //large phone */
+    @media screen and (max-width: 460px) and (min-width: 376px) {
+        .heading {
+            display: none;
+        }
+
+        .phone {
+            display: inline-block;
+        }
+
+        #calorieResult,
+        sup>i.fa {
+            font-size: 1.41rem !important
+        }
+
+        h5#SD {
+            font-size: 14px !important;
+            margin-top: 6px;
+        }
+
+        sub.lg {
+            display: none;
+        }
+
+        h5.d-inline-block {
+            font-size: 1rem;
+        }
+    }
+
+    /* //medium phone */
+    @media screen and (max-width: 375px) and (min-width: 319px) {
+        .heading {
+            display: none;
+        }
+
+        .phone {
+            display: inline-block;
+        }
+
+        #calorieResult,
+        sup>i.fa {
+            font-size: 1.41rem !important
+        }
+
+        h5#SD {
+            font-size: 14px !important;
+            margin-top: 6px;
+        }
+
+        sub.lg {
+            display: none;
+        }
+
+        h5.d-inline-block {
+            font-size: 1rem;
+        }
+    }
+
+    /* //Small Phone */
+    @media screen and (max-width: 320px) {
+        .heading {
+            display: none;
+        }
+
+        #calculateTitle,
+        #BMRResult,
+        #SD {
+            font-size: 1.2rem;
+        }
+
+        .phone {
+            display: inline-block;
+        }
+
+        .text-danger {
+            font-size: 0.8rem;
+        }
+
+        sub.lg {
+            display: none;
+        }
+
+        span {
+            font-size: 20px;
+        }
+
+        h5#BMRResult,
+        span.calorieResult,
+        sup>i.fa {
+            font-size: 1rem;
+        }
+
+        h5#SD {
+            font-size: 13px !important;
+            margin-top: 6px;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+    }
+</style>
+
+<body>
+    <!-- !Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><i class="fa fa-fire text-danger"></i> Health
+            Calculator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <span class="navbar-text text-center text-muted font-weight-bolder"><i class="fa fa-copy text-dark"></i>
+                According to BMR & BMI - Calculate Your Health Statistics</span>
+        </div>
+    </nav>
+    <div class="sticky-bottom d-none">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    <form id="inputForm">
+        <div class="container d-flex justify-content-center align-content-center flex-column flex-wrap">
+            <div class="card my-3 box-shadow" style="width: 100%;">
+                <div class="card-body">
+                    <h3 class="text-center"><i class="fa fa-calculator text-dark phone"></i>Calculate Area
+                    </h3>
+                    <hr>
+                    <!-- !Input for Age -->
+                    <div id="ageBox">
+                        <h5 class="card-title">Your Age : </h5>
+                        <div class="input-group mb-3 my-3">
+                            <div class="input-group-append valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputAge').value--"><i
+                                        class="fa fa-minus"></i></span>
+                            </div>
+                            <input type="number" class="form-control"
+                                placeholder="Enter Your current age (3 to 80) years" id="inputAge" min="3" max="80"
+                                aria-label="Age" required>
+                            <div class="input-group-prepend valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputAge').value++"><i
+                                        class="fa fa-plus"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- !Input for Gender -->
+                    <div class="my-3 mx-auto d-block" aria-required="true" id="gender">
+                        <h5 class="d-inline-block">Gender : &nbsp;&nbsp;</h5>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" checked value="male">
+                            <label class="form-check-label font-weight-bolder text-muted" for="male"
+                                aria-checked="true"><i class="fa fa-male text-danger"></i> Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label font-weight-bolder text-muted" for="female"><i
+                                    class="fa fa-female text-success"></i> Female</label>
+                        </div>
+                    </div>
+                    <!-- !Input for Weight -->
+                    <div id="ageBox">
+                        <h5 class="card-title">Your Weight (KG) : </h5>
+                        <div class="input-group mb-3 my-3">
+                            <div class="input-group-append valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputWeight').value--"><i
+                                        class="fa fa-minus"></i></span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Weight" id="inputWeight" min="5"
+                                max="200" aria-label="weight" required>
+                            <div class="input-group-prepend valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputWeight').value++"><i
+                                        class="fa fa-plus"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- !Input for Height -->
+                    <div class="my-3 mx-auto d-block" id="HeightBox">
+                        <h5 class="d-inline-block">Height Measuring Type : &nbsp;&nbsp;</h5>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="heightType" id="centimeter" checked
+                                value="centimeter">
+                            <label class="form-check-label font-weight-bolder text-muted" for="centimeter"
+                                aria-checked="true"><i class="fa fa-check-circle text-danger"></i> Centimeter</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="heightType" id="inches&foot"
+                                value="inches&foot">
+                            <label class="form-check-label font-weight-bolder text-muted" for="inches&foot"><i
+                                    class="fa fa-check-circle text-success"></i> Inches & Foot</label>
+                        </div>
+                    </div>
+
+                    <!-- TODO: Centimeter Box -->
+                    <div id="centimeterBox">
+                        <div class="input-group mb-3 my-3">
+                            <div class="input-group-append valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputCentimeter').value--"><i
+                                        class="fa fa-minus"></i></span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Your height in centimeter scale"
+                                id="inputCentimeter" min="1" aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-prepend valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputCentimeter').value++"><i
+                                        class="fa fa-plus"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="inchBox" style="display: none;">
+                        <div class="input-group mb-3 my-3">
+                            <!-- TODO: Foots -->
+                            <div class="input-group-append valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputFoot').value--" style="font-size: 20px;"><i
+                                        class="fa fa-minus"></i></span>
+                            </div>
+                            <input type="number" id="inputFoot" min="1" max="8" placeholder="Foot" class="form-control"
+                                required />
+                            <div class="input-group-prepend valChanger" style="margin-right: 10px;">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputFoot').value++"><i
+                                        class="fa fa-plus"></i></span>
+                            </div>
+
+                            <!-- TODO: Inches -->
+                            <div class="input-group-append valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputInch').value--" style="font-size: 20px;"><i
+                                        class="fa fa-minus"></i></span>
+                            </div>
+                            <input type="number" id="inputInch" min="0" max="12" placeholder="Inches"
+                                class="form-control" required />
+                            <div class="input-group-prepend valChanger">
+                                <span class="input-group-text" style="cursor: pointer;"
+                                    onclick="document.getElementById('inputInch').value++"><i
+                                        class="fa fa-plus"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- !State of health input -->
+                    <div class="mb-3">
+                        <h5>Physical State</h5>
+                        <div class="input-group is-valid">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="physicalState">Options</label>
+                            </div>
+                            <select class="custom-select" id="physicalState" required>
+                                <option value="none">Choose...</option>
+                                <option value="low">Low - no exercise : আমি পরিশ্রমী না
+                                </option>
+                                <option value="normal">Normal - light exercise : হালকা পরিশ্রমী, সপ্তাহে ২-৩ দিন অল্প
+                                    খেলাধুলা বা ব্যায়াম করি</option>
+                                <option value="medium">Medium - moderate exercise : পরিশ্রমী, সপ্তাহে ২-৩ দিন প্রচুর
+                                    খেলাধুলা বা ব্যায়াম করি </option>
+                                <option value="high">High - very active : পরিশ্রমী, সপ্তাহে প্রতিদিন প্রচুর
+                                    খেলাধুলা-ব্যায়াম করি </option>
+                                <option value="veryHigh">Very High - extra active : অত্যন্ত পরিশ্রমী, প্রচুর ব্যায়াম ও
+                                    জিম করি</option>
+                            </select>
+                        </div>
+                        <div class="valid-feedback">
+                            Choose Your Physical State..Or..Exercise rate
+                        </div>
+                    </div>
+                    <div id="settings d-flex justify-content-center align-content-center">
+                        <button id="settingsBtn" class="link btn text-info text-muted font-weight-bolder"><i
+                                class="fa fa-plus"></i> Settings</button>
+                    </div>
+
+                    <!-- !More settings Content -->
+                    <div id="settingSection" style="display: none;">
+                        <div class="my-3 mx-auto" id="calculateType">
+                            <h5 class="d-block">Calculate : &nbsp;&nbsp;</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="calculate" id="bmr" value="bmr">
+                                <label class="form-check-label font-weight-bolder text-muted" for="bmr"
+                                    aria-checked="true"><i class="fa fa-copy text-danger"></i> Calories & BMR</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="calculate" id="bmi" value="bmi">
+                                <label class="form-check-label font-weight-bolder text-muted" for="bmi"
+                                    aria-checked="true"><i class="fa fa-codepen text-warning"></i> Only BMI</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="calculate" id="all" checked
+                                    value="all">
+                                <label class="form-check-label font-weight-bolder text-muted" for="all"><i
+                                        class="fa fa-check text-success"></i> All</label>
+                            </div>
+                        </div>
+
+                        <!-- //results type -->
+                        <div class="my-3 mx-auto" id="resultType">
+                            <h5 class="d-block">Result in (for BMR) : &nbsp;&nbsp;</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="resultIn" id="calories"
+                                    value="calories" class="resultType" checked>
+                                <label class="form-check-label font-weight-bolder text-muted" for="calories"
+                                    aria-checked="true"><i class="fa fa-pencil-square-o text-danger"></i>
+                                    Calories</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="resultIn" id="kiloJoules"
+                                    value="kiloJoules" class="resultType">
+                                <label class="form-check-label font-weight-bolder text-muted" for="kiloJoules"
+                                    aria-checked="true"><i class="fa fa-pencil-square-o text-warning"></i>
+                                    KiloJoules</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- !Calculate & Reset button  -->
+                    <div class="my-3">
+                        <button class="btn btn-primary" type="submit" id="calculate">Calculate</button>
+                        <button class="btn btn-danger" type="reset"
+                            onclick="document.getElementById('inputForm').reset()">Reset</button>
+                    </div>
+
+                    <!-- !Success Alert Section -->
+                    <div class="alert alert-success alert-dismissible sticky-top fade show" style="display: none;"
+                        id="successAlert" role="alert">
+                        <strong>Successfully calculated!</strong> Check Your <a href="#resultBox"
+                            class="link">result</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!-- !Error Alert Section -->
+                    <div class="alert alert-danger alert-dismissible sticky-top fade show" style="display: none;"
+                        id="errorAlert" role="alert">
+                        <strong>Error!</strong> Please Fill in the Form or enter valid values to calculate your health
+                        statistics
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+    </form>
+
+    <!-- !The result -->
+    <div class="card my-3 box-shadow" style="width: 100%;" id="resultBox">
+        <div class="card-body">
+            <h3 class="card-title text-center"><i class="fa fa-calculator"></i> Result</h3>
+            <hr>
+            <div id="navigator" style="display: none;">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top my-3">
+                    <a class="navbar-brand" href="#">Navigator</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#calorieSection">BMR</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    BMI
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#state">State</a>
+                                    <a class="dropdown-item" href="#goodValues">Good BMI & Weight</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#goodWeightDifference">Weight should be</a>
+                                    <a class="dropdown-item" href="#tips">Tips</a>
+                                </div>
+                            </li>
+                            <form class="form-inline my-2 my-lg-0 float-right">
+                                <a class="btn btn-outline-danger my-2 my-sm-0"
+                                    onclick="document.getElementById('navigator').style.display = 'block'"
+                                    type="submit">Hide</a>
+                            </form>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div id="result">
+                <p class="alert alert-warning d-block font-weight-bolder">Your results will
+                    apear here.......</p>
+            </div>
+
+            <!-- TODO: Daily Calorie need Calculate Section -->
+            <div id="calorieSection">
+            </div>
+
+            <!-- TODO: Result Health Section -->
+            <div id="healthSection">
+            </div>
+
+            <!-- !Buttons -->
+            <div class="d-block position-relative" style="bottom: 0px;" id="buttons">
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="container">
+        <p><i class="fa fa-thumb-tack"></i> © 2020-2021 | Owned By <b class="text-muted font-weight-bolder">RF Fahad
+                Islam<b> | Made with JavaScript Language <i class="fa fa-git-square"></i>
+    </footer>
+    <!-- Optional JavaScript -->
+    <script src="healthcalculator.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
