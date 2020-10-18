@@ -173,31 +173,31 @@ function calculateHealth() {
             weightText = "Low weight";
         } else if (BMI >= 18.5 && BMI <= 24.9) {
             state = "Normal"
-            explainState = "সুসাস্থের আদর্শ মান";
-            tips = "এটি বজায় রাখতে হবে । অতিরিক্ত বা অসাস্থকর খাদ্য গ্রহণ করে সাস্থ বাড়ানো যাবে না"
+            explainState = "সুসাস্থ্যের আদর্শ মান";
+            tips = "এটি বজায় রাখতে হবে । অতিরিক্ত বা অসাস্থ্যকর খাদ্য গ্রহণ করে সাস্থ্য বাড়ানো যাবে না"
             textColor = 'success';
             weightText = "OverWeight / Underweight";
         } else if (BMI > 24.9 && BMI <= 29.9) {
             state = "Overweight"
-            explainState = "শরীরের ওজন অতিরিক্ত";
+            explainState = "শরীরের ওজন বেশি";
             tips = "চিন্তিত হবেন না । ব্যায়াম করে ওজন কমাতে হবে";
             textColor = 'warning'
             weightText = "OverWeight";
         } else if (BMI > 29.9 && BMI <= 34.9) {
-            state = "obesse 1st stage"
-            explainState = "মোটা হওয়ার প্রথম স্তর";
+            state = "obese"
+            explainState = "স্থুল (পর্যায়-১): মেদ বেশি | অতিরিক্ত ওজন";
             tips = "বেছে খাদ্যগ্রহণ ও ব্যায়াম করা প্রয়োজন ।"
             textColor = 'warning';
             weightText = "High OverWeight";
         } else if (BMI > 34.9 && BMI <= 39.9) {
-            state = "Obesse"
-            explainState = "স্থুল | বেশি মোটাত্ত";
-            tips = "পরিমিত খাদ্যগ্রহণ ও বেশ ব্যায়াম করা প্রয়োজন । ওজন নিয়োন্ত্রণে আনতে হবে"
+            state = "obese (High)"
+            explainState = "বেশি স্থুল (পর্যায়-২) ।<br> অতিরিক্ত মেদ";
+            tips = "পরিমিত খাদ্যগ্রহণ ও বেশ ব্যায়াম করা প্রয়োজন । <br> ওজন নিয়োন্ত্রণে আনতে হবে | <br> প্রয়োজনে ডাক্তারের পরামর্শ প্রয়োজন"
             textColor = 'danger';
             weightText = "OverWeight (very high)";
         } else {
-            state = "Extremly Obesse"
-            explainState = "অতিরিক্ত মোটা । মৃত্যুঝুঁকির আশংকা!";
+            state = "Extremly obese"
+            explainState = "অতিরিক্ত স্থুল (শেষ পর্যায়)। মৃত্যুঝুঁকির আশংকা!";
             tips = "ডাক্তারের পরামর্শ প্রয়োজন । দ্রুত ওজন নিয়ন্ত্রণে আনতে হবে"
             textColor = 'danger';
             weightText = "OverWeight (extreme)";
@@ -249,14 +249,13 @@ function calculateHealth() {
 <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
     style="font-size: 1.5rem;" id="BMRResult">${BMR}</h5>
 <hr>
-<h5 class="d-inline-block">${bodyBurningText} : <small class="text-muted font-weight-bolder">(Calculated)</small></h5>
+<h5 class="d-inline-block">${bodyBurningText} : (c)</h5>
 <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
     style="font-size: 1.5rem;" id="SD">
     <i class="fa fa-clipboard"></i> ${BMR} X ${multipicationValue} ${multipicationValue2}
 </h5>
 <hr>
-<h5 class="d-inline-block">Used BMR Law : <small class="text-muted font-weight-bolder">(Calculated
-        )</small></h5>
+<h5 class="d-inline-block">Used BMR Law : </h5>
 <h5 class="d-inline-block text-danger font-weight-bold position-relative float-right"
 style="font-size: 1.5rem;" id="SD">
 <i class="fa fa-codepen text-codepen"></i> Heris Bene-Dict 
@@ -265,7 +264,7 @@ style="font-size: 1.5rem;" id="SD">
 
         //TODO: BMI HTML
         htmlForBMI = `
-    <div class="my-3 d-flex justify-content-center align-content-center flex-column">
+    <div class="my-3 d-flex justify-content-center align-content-center flex-column text-center">
     <h5 class="card-header my-3">Your Health Statistics</h5>
     <h3 class="card-title text-center" id="calculateTitle">Health State (BMI) : </h3>
     <h4 class="d-block font-weight-bold mx-auto" style="font-size: 1rem;">
@@ -353,3 +352,24 @@ style="font-size: 1.5rem;" id="SD">
         }
     } //End of the else statement
 }
+
+//!Add Event Listener For article Sections
+let BMIMore = document.getElementById('BMIMore');
+BMIMore.addEventListener('click', () => {
+    let BMIArticle = document.getElementById('BMIArticle');
+    if (BMIArticle.style.display === "none") {
+        BMIArticle.style.display = "block";
+    } else {
+        BMIArticle.style.display = "none";
+    }
+})
+
+let BMRMore = document.getElementById('BMRMore');
+BMRMore.addEventListener('click', () => {
+    let BMRArticle = document.getElementById('BMRArticle');
+    if (BMRArticle.style.display === "none") {
+        BMRArticle.style.display = "block";
+    } else {
+        BMRArticle.style.display = "none";
+    }
+})
