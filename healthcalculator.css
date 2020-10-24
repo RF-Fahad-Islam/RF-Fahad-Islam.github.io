@@ -1,0 +1,203 @@
+.box-shadow:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.phone {
+    display: none;
+}
+
+@media screen and (min-width: 462px) {
+
+    span#calorieResult,
+    sup>i.fa {
+        font-size: 2.5rem !important;
+    }
+
+    #SD {
+        font-size: 1.5rem;
+    }
+
+    h5.responsive {
+        font-size: 1rem !important;
+    }
+}
+
+/* //large phone */
+@media screen and (max-width: 504px) and (min-width: 376px) {
+    .heading {
+        display: none;
+    }
+
+    .phone {
+        display: inline-block;
+    }
+
+    #calorieResult,
+    sup>i.fa {
+        font-size: 1.41rem !important
+    }
+
+    h5#SD {
+        font-size: 14px !important;
+        margin-top: 6px;
+    }
+
+    sub.lg {
+        display: none;
+    }
+
+    h5.d-inline-block {
+        font-size: 1rem;
+    }
+}
+
+/* //medium phone */
+@media screen and (max-width: 375px) and (min-width: 319px) {
+    .heading {
+        display: none;
+    }
+
+    .phone {
+        display: inline-block;
+    }
+
+    #calorieResult,
+    sup>i.fa {
+        font-size: 1.41rem !important
+    }
+
+    h5#SD {
+        font-size: 14px !important;
+        margin-top: 6px;
+    }
+
+    sub.lg {
+        display: none;
+    }
+
+    h5.d-inline-block {
+        font-size: 1rem;
+    }
+}
+
+/* //Small Phone */
+@media screen and (max-width: 320px) {
+    .heading {
+        display: none;
+    }
+
+    #calculateTitle,
+    #BMRResult,
+    #SD {
+        font-size: 1.2rem;
+    }
+
+    .phone {
+        display: inline-block;
+    }
+
+    .text-danger {
+        font-size: 0.8rem;
+    }
+
+    sub.lg {
+        display: none;
+    }
+
+    span {
+        font-size: 20px;
+    }
+
+    h5#BMRResult,
+    span.calorieResult,
+    sup>i.fa {
+        font-size: 1rem;
+    }
+
+    h5#SD {
+        font-size: 13px !important;
+        margin-top: 6px;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+  img {
+    transition: transform .2s; /* Animation */
+    max-width: 100%;
+    height: auto;
+  }
+  
+  img:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  /* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

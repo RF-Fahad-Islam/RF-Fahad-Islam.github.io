@@ -29,6 +29,92 @@ settingsBtn.addEventListener('click', (e) => {
     }
 });
 
+//TODO: Dark mode 
+function darkMode() {
+    var element = document.body;
+    var element2 = document.querySelectorAll('.card');
+    var element3 = document.querySelectorAll('.card-body');
+    var h5s = document.querySelectorAll('h5');
+    var inputs = document.querySelectorAll('input');
+    var anchors = document.querySelectorAll('a');
+    var labels = document.querySelectorAll('label');
+    var selects = document.querySelectorAll('select');
+    var spans = document.querySelectorAll('span');
+    var uls = document.querySelectorAll('ul');
+    var lis = document.querySelectorAll('.list-group-item');
+    var navs = document.querySelectorAll('nav');
+    var textMuted = document.querySelectorAll('.text-muted');
+    if (element.classList.toggle('bg-dark') && element.classList.toggle("text-white")) {
+        for (const text of textMuted) {
+            text.classList.remove('text-muted');
+        }
+    } else {
+        for (const text of textMuted) {
+            text.classList.add('text-muted');
+        }
+    }
+    for (const card of element2) {
+        card.classList.toggle("bg-dark")
+        card.classList.toggle("text-white")
+    }
+    for (const h5 of h5s) {
+        h5.classList.toggle("text-white");
+        h5.classList.toggle('bg-dark');
+    }
+    for (const cardBody of element3) {
+        cardBody.classList.toggle("bg-dark")
+        cardBody.classList.toggle("text-white")
+    }
+    for (const nav of navs) {
+        nav.classList.toggle("bg-dark")
+        nav.classList.toggle("navbar-dark")
+    }
+    for (const li of lis) {
+        li.classList.toggle("bg-dark");
+        li.classList.toggle("text-white");
+    }
+    for (const anchor of anchors) {
+        anchor.classList.toggle("text-primary");
+    }
+    for (const input of inputs) {
+        input.classList.toggle("text-white");
+        input.classList.toggle("bg-dark");
+    }
+    for (const select of selects) {
+        select.classList.toggle("text-white");
+        select.classList.toggle("bg-dark");
+    }
+    for (const span of spans) {
+        span.classList.toggle("text-white");
+        span.classList.toggle("bg-dark");
+    }
+    for (const label of labels) {
+        label.classList.toggle("text-white");
+        label.classList.toggle("bg-dark");
+    }
+    for (const ul of uls) {
+        ul.classList.toggle("text-white");
+        ul.classList.toggle("bg-dark");
+    }
+
+}
+
+//TODO: Copy Calorie Result
+function copyCalorie() {
+    /* Get the text field */
+    var copyText = document.getElementById("calorieResult");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+}
+
 //TODO: show to height input box according to height measuring type
 for (const item of heightRadios) {
     item.addEventListener('click', (e) => {
@@ -242,6 +328,8 @@ function calculateHealth() {
     <h4 class="d-block font-weight-bold mx-auto" style="font-size: 1.5rem;">
         <sup><i class="fa fa-fire text-danger"></i></sup> <span id="calorieResult"> ${bodyBurning}
             ${bodyBurningText}/Day</span>
+            <!-- The button used to copy the text -->
+            <span onclick="copyCalorie()" class="btn btn-outline-primary"><i class="fa fa-clipboard"></i></span>
     </h4>
 </div>
 <hr>
@@ -269,11 +357,15 @@ style="font-size: 1.5rem;" id="SD">
     <h3 class="card-title text-center" id="calculateTitle">Health State (BMI) : </h3>
     <h4 class="d-block font-weight-bold mx-auto" style="font-size: 1rem;">
         <sup><i class="fa fa-${icon} text-${textColor}"></i></sup> &nbsp;&nbsp;<span id="calorieResult"> ${explainState}
-        </span>
+        </span> <small><a id="showBMIChart" onclick="showChart()" class="link text-primary">Chart <i class="fa fa-area-chart"></i></a></small>
     </h4>
 </div>
 <h4>
     <ul class="list-group">
+    <li class="list-group-item" style="display: none;" id="BMIChart">Chart : <div id="img d-flex justify-content-center">
+            <img src="bmi-chart.gif" class="d-block mx-auto img" alt="BMI Chart">
+        </div>
+    </li>
     <li class="list-group-item">BMI Formula : <span
             class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
                 class="font-weight-bolder text-muted">=</i> weight(kg) /
@@ -281,9 +373,51 @@ style="font-size: 1.5rem;" id="SD">
     </li>
 
     <li class="list-group-item">Your BMI (Body Mass Index) : <span
-    class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3">= ${BMI}</span>
+    class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3">= ${BMI}</span> <a onclick="showBMIStateTable()" class="link text-primary" id="BMITableBtn">Show BMI Table</a>
+    <div class="card mx-auto" id="BMIStateTable" style="border: none;
+    width: 100%;
+    height: auto;
+    display: none;">
+    <br>
+    <div class="card-body bg-light mx-auto">
+        <b>Check the health stats according to BMI (Body Mass Index) </b>
+    </div>
+    <table class="table table-striped mx-auto">
+        <thead>
+            <tr>
+                <th scope="col">BMI</th>
+                <th scope="col">State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"> &lt; 18.5</th>
+                <td>শরীরের ওজন কম (Underweight)</td>
+            </tr>
+            <tr>
+                <th scope="row">18.5 to 24.9</th>
+                <td>সুসাস্থ্যের আদর্শ মান (Normal)</td>
+            </tr>
+            <tr>
+                <th scope="row">25 to 29.9</th>
+                <td>শরীরের ওজন বেশি (Overweight)</td>
+            </tr>
+            <tr>
+                <th scope="row">30 to 34.9</th>
+                <td>"স্থুল (পর্যায়-১): মেদ বেশি | অতিরিক্ত ওজন (Obese I)</td>
+            </tr>
+            <tr>
+                <th scope="row">35 to 39.9</th>
+                <td>বেশি স্থুল (পর্যায়-২) । অতিরিক্ত মেদ (Obese II)</td>
+            </tr>
+            <tr>
+                <th scope="row">&gt 40</th>
+                <td>অতিরিক্ত স্থুল (শেষ পর্যায়)। মৃত্যুঝুঁকির আশংকা! (Obese III Extreme)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
     </li>
-    <hr>
     <li class="list-group-item" id="state">State : <span
             class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
                 class="font-weight-bolder text-muted">=</i> ${state}</span>
@@ -328,7 +462,7 @@ style="font-size: 1.5rem;" id="SD">
         setTimeout(() => {
             successAlert.classList.add('hide')
             successAlert.style.display = "none";
-        }, 2000);
+        }, 4000);
 
         //TODO: Show the results according to user need
         if (calculateItemChecked === "bmr") {
@@ -353,7 +487,35 @@ style="font-size: 1.5rem;" id="SD">
     } //End of the else statement
 }
 
+//TODO: A function for showing BMI chart
+function showChart() {
+    BMIChart.style.display = "block";
+}
+
+//TODO: A function to showing the BMI state Table
+function showBMIStateTable() {
+    if (BMIStateTable.style.display === "none") {
+        BMIStateTable.style.display = "block";
+        BMITableBtn.innerHTML = "Hide BMI Table"
+    } else {
+        BMIStateTable.style.display = "none";
+        BMITableBtn.innerHTML = "Show BMI Table"
+    }
+}
+
 //!Add Event Listener For article Sections
+let readSectionBtn = document.getElementById('readSectionBtn');
+readSectionBtn.addEventListener('click', () => {
+    let readSectionArticle = document.getElementById('readSectionArticle');
+    if (readSectionArticle.style.display === "none") {
+        readSectionArticle.style.display = "block";
+        readSectionBtn.innerHTML = `<i class="fa fa-minus float-right"></i>`;
+    } else {
+        readSectionArticle.style.display = "none";
+        readSectionBtn.innerHTML = `<i class="fa fa-plus float-right"></i>`;
+    }
+});
+
 let BMIMore = document.getElementById('BMIMore');
 BMIMore.addEventListener('click', () => {
     let BMIArticle = document.getElementById('BMIArticle');
@@ -371,5 +533,42 @@ BMRMore.addEventListener('click', () => {
         BMRArticle.style.display = "block";
     } else {
         BMRArticle.style.display = "none";
+    }
+})
+
+let overweightRiskContent = document.getElementById('overweightRiskContent');
+overweightRiskContent.addEventListener('click', () => {
+    let overweightRiskArticle = document.getElementById('overweightRiskArticle');
+    if (overweightRiskArticle.style.display === "none") {
+        overweightRiskArticle.style.display = "block";
+    } else {
+        overweightRiskArticle.style.display = "none";
+    }
+})
+let underweightRiskContent = document.getElementById('underweightRiskContent');
+underweightRiskContent.addEventListener('click', () => {
+    let underweightRiskArticle = document.getElementById('underweightRiskArticle');
+    if (underweightRiskArticle.style.display === "none") {
+        underweightRiskArticle.style.display = "block";
+    } else {
+        underweightRiskArticle.style.display = "none";
+    }
+})
+let BMILimitContent = document.getElementById('BMILimitContent');
+BMILimitContent.addEventListener('click', () => {
+    let BMILimitArticle = document.getElementById('BMILimitArticle');
+    if (BMILimitArticle.style.display === "none") {
+        BMILimitArticle.style.display = "block";
+    } else {
+        BMILimitArticle.style.display = "none";
+    }
+})
+let BMITableContent = document.getElementById('BMITableContent');
+BMITableContent.addEventListener('click', () => {
+    let BMIStateTable2 = document.getElementById('BMIStateTable2');
+    if (BMIStateTable2.style.display === "none") {
+        BMIStateTable2.style.display = "block";
+    } else {
+        BMIStateTable2.style.display = "none";
     }
 })
