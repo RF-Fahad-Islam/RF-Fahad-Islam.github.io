@@ -15,6 +15,13 @@ calculate.addEventListener('click', (e) => {
   e.preventDefault();
   calculateAge();
 })
+//for prevent deafult for every buttons
+let buttons = document.getElementsByTagName('button');
+for (const button of buttons) {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+  })
+}
 //add a enter event listener
 currentDateInput.valueAsDate = new Date();
 //calculate age function
@@ -33,7 +40,7 @@ function calculateAge() {
   let calculateMonth;
   let calculateYear;
   if (givenDate > currentDate) {
-    calculateDate = Math.abs(30 - (givenDate - (currentDate+1)));
+    calculateDate = Math.abs(30 - (givenDate - (currentDate + 1)));
     givenMonth++;
     console.log("Date", calculateDate);
   } else {
@@ -61,12 +68,13 @@ function calculateAge() {
 
   //add to statistics 
   //passed times
+  // let calculate Weeks
   let now = new Date();
   let passedYears = `${calculateYear} Years ${calculateMonth} Months ${calculateDate} Days`
   let passedMonths = calculateYear * 12 + calculateMonth;
   let PMS = `${passedMonths} Months ${calculateDate} Days`
 
-  let passedWeeks = Math.floor(passedMonths * 4.52);
+  let passedWeeks = Math.floor(passedMonths * 4.34524);
   let PWS = `${passedWeeks} Weeks ${calculateDate} Days`
 
   let passedDays = Math.floor(passedMonths * 30.45);
@@ -75,10 +83,10 @@ function calculateAge() {
   let passedHours = passedDays * 24;
   let PHS = `${passedHours} Hours ${now.getMinutes()} Minutes`
 
-  let passedMinutes = passedHours * 60 + now.getMinutes();
+  let passedMinutes = passedHours * 60;
   let PMnS = `${passedMinutes} Minutes ${now.getSeconds()} Seconds`
 
-  let passedSeconds = (passedMinutes * 60) + now.getSeconds();
+  let passedSeconds = (passedMinutes * 60);
   let PSS = `${passedSeconds} Seconds ${now.getMilliseconds()} Milliseconds`
 
   let passedMilliseconds = (passedSeconds * 1000);
@@ -91,7 +99,7 @@ function calculateAge() {
         <h4>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">You Passed (Years) :  <span class=" alert responsive d-block font-weight-light bg-light my-3">${passedYears}</span></li>
-          <li class="list-group-item">You passed (Monts) :  <span class=" alert responsive d-block font-weight-light bg-light my-3">${PMS}</span></li>
+          <li class="list-group-item">You passed (Months) :  <span class=" alert responsive d-block font-weight-light bg-light my-3">${PMS}</span></li>
           <li class="list-group-item">You passed (Weeks) :  <span class=" alert responsive d-block font-weight-light bg-light my-3">${PWS}</span></li>
           <li class="list-group-item">You passed (Days) :  <span class=" alert responsive d-block font-weight-light bg-light my-3">${PDS}</span></li>
           <li class="list-group-item">You passed (Hours) :  <span class=" alert responsive d-block font-weight-light bg-light my-3">${PHS}</span></li>

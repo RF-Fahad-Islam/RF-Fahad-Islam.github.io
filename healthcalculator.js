@@ -14,7 +14,6 @@ let inputFoot = document.getElementById('inputFoot');
 
 let calculate = document.getElementById('calculate');
 let result = document.getElementById('result');
-
 //TODO: Make a ifelse statement for the + Settings button to give the user more controlls
 let settingsBtn = document.getElementById('settingsBtn');
 let settingSection = document.getElementById('settingSection');
@@ -28,14 +27,20 @@ settingsBtn.addEventListener('click', (e) => {
         settingsBtn.innerHTML = "<i class='fa fa-plus'></i> Settings"
     }
 });
-
+let click = 0;
 //TODO: Dark mode 
 function darkMode() {
+    if (click === 0) {
+        click = 1;
+    } else {
+        click = 0;
+    }
     var element = document.body;
     var element2 = document.querySelectorAll('.card');
     var element3 = document.querySelectorAll('.card-body');
     var h5s = document.querySelectorAll('h5');
-    var inputs = document.querySelectorAll('input');
+    var h4s = document.querySelectorAll('h4');
+    var inputs = document.querySelectorAll('.form-control');
     var anchors = document.querySelectorAll('a');
     var labels = document.querySelectorAll('label');
     var selects = document.querySelectorAll('select');
@@ -44,13 +49,11 @@ function darkMode() {
     var lis = document.querySelectorAll('.list-group-item');
     var navs = document.querySelectorAll('nav');
     var textMuted = document.querySelectorAll('.text-muted');
+    var table = document.querySelector('table');
+    table.classList.toggle('text-white');
     if (element.classList.toggle('bg-dark') && element.classList.toggle("text-white")) {
         for (const text of textMuted) {
             text.classList.remove('text-muted');
-        }
-    } else {
-        for (const text of textMuted) {
-            text.classList.add('text-muted');
         }
     }
     for (const card of element2) {
@@ -72,6 +75,10 @@ function darkMode() {
     for (const li of lis) {
         li.classList.toggle("bg-dark");
         li.classList.toggle("text-white");
+    }
+    for (const h4 of h4s) {
+        h4.classList.toggle("bg-dark");
+        h4.classList.toggle("text-white");
     }
     for (const anchor of anchors) {
         anchor.classList.toggle("text-primary");
@@ -95,6 +102,9 @@ function darkMode() {
     for (const ul of uls) {
         ul.classList.toggle("text-white");
         ul.classList.toggle("bg-dark");
+    }
+    if (click === 1) {
+        document.body.classList.add('text-black');
     }
 
 }
@@ -367,13 +377,13 @@ style="font-size: 1.5rem;" id="SD">
         </div>
     </li>
     <li class="list-group-item">BMI Formula : <span
-            class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+            class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
                 class="font-weight-bolder text-muted">=</i> weight(kg) /
             Height(m) <sup class="font-weight-bolder">2</sup></span>
     </li>
 
     <li class="list-group-item">Your BMI (Body Mass Index) : <span
-    class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3">= ${BMI}</span> <a onclick="showBMIStateTable()" class="link text-primary" id="BMITableBtn">Show BMI Table</a>
+    class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3">= ${BMI}</span> <a onclick="showBMIStateTable()" class="link text-primary" id="BMITableBtn">Show BMI Table</a>
     <div class="card mx-auto" id="BMIStateTable" style="border: none;
     width: 100%;
     height: auto;
@@ -419,31 +429,31 @@ style="font-size: 1.5rem;" id="SD">
 </div>
     </li>
     <li class="list-group-item" id="state">State : <span
-            class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+            class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
                 class="font-weight-bolder text-muted">=</i> ${state}</span>
     </li>
     <hr>
         <li class="list-group-item" id="goodValues">1. Your BMI should be : <span
-        class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+        class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${healthyBMI}</span>
         <span
-        class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+        class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${averageHealthyBMI} <small>(Average)</small></span>
         </li>
         <li class="list-group-item">2.Your Weight should be : <span
-        class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+        class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${healthyWeight}</span>
         <span
-        class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+        class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${averageHealthyWeight} <small>(Average)</small></span>
         </li>
         <li class="list-group-item" id="goodWeightDifference">${weightText}<span
-        class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+        class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${defferenceWeight}</span>
         </li>
         <hr>
         <li class="list-group-item" id="tips">Tips (করনীয়) : <span
-        class=" alert responsive d-block font-weight-bolder text-danger text-muted bg-light my-3"><i
+        class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${tips}</span>
         </li>
     </ul>
