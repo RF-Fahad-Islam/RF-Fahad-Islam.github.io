@@ -16,7 +16,7 @@
 
 <body>
     <!-- !Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light position-sticky sticky-top" id="navbar">
         <a class="navbar-brand" href="#"><i class="fa fa-fire text-danger"></i> Health
             Calculator</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -31,6 +31,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#readSection">Read Section</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#help&support">Help & Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://forms.gle/45Cmro7TxJoZCx5h9" target="_blank">Take Survey</a>
                 </li>
             </ul>
             <span class="navbar-text text-center text-muted font-weight-bolder"><i class="fa fa-copy text-dark"></i>
@@ -52,8 +58,23 @@
             </button>
         </nav>
     </div>
+
+    <!-- !Scroll top button -->
+    <button id="topBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
     <form id="inputForm">
+
         <div class="container d-flex justify-content-center align-content-center flex-column flex-wrap">
+            <div class="alert alert-warning my-3 alert-dismissible fade show" id="introAlert" role="alert">
+                <span class="font-weight-bold">
+                    <strong>Fill in the</strong> Form below to calculate your health statistics (Such as: <b>Calorie
+                        need</b> and <b>Health stats</b> ) according to <b>BMR (Body Metabolic Rate)</b> and <b>BMI
+                        (Body Mass Index)</b>
+                </span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
             <div class="card my-3 box-shadow" style="width: 100%;">
                 <div class="card-body">
                     <h3 class="text-center"><i class="fa fa-calculator text-dark phone"></i>Calculate Area
@@ -290,8 +311,10 @@
         <div class="card-body">
             <h3 class="card-title text-center"><i class="fa fa-calculator"></i> Result</h3>
             <hr>
-            <div id="navigator" style="display: none;">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top my-3">
+
+            <!-- !Navigator for results -->
+            <div id="navigator" style="display: none; opacity: 0.5;">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                     <a class="navbar-brand" href="#">Navigator</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -322,8 +345,11 @@
                             </li>
                             <form class="form-inline my-2 my-lg-0 float-right">
                                 <a class="btn btn-outline-danger my-2 my-sm-0"
-                                    onclick="document.getElementById('navigator').style.display = 'block'"
+                                    onclick="document.getElementById('navigator').style.display = 'none'"
                                     type="submit">Hide</a>
+                                <a class="btn btn-outline-success my-2 my-sm-0"
+                                    onclick="document.getElementById('navigator').classList.remove('fixed-top')"
+                                    type="submit">Remove From Top</a>
                             </form>
                         </ul>
                     </div>
@@ -348,12 +374,12 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <h5 class="card-header bg-light">Read Section (Read about BMR & BMI Information) <a class="btn float-right"
-                id="readSectionBtn"><i class="fa fa-minus float-right"></i></a></h5>
-        <div class="card-body">
-            <section id="readSection">
-                <div id="readSectionArticle">
+    <section id="readSection">
+        <div class="card">
+            <h5 class="card-header bg-light">Read Section (Read about BMR & BMI Information) <a class="btn float-right"
+                    id="readSectionBtn"><i class="fa fa-minus float-right"></i></a></h5>
+            <div id="readSectionArticle">
+                <div class="card-body">
                     <h5 class="text-muted font-weight-bolder d-inline-block">BMI কি? <a
                             class="link btn text-muted font-weight-bolder" id="BMIMore"><i
                                 class="fa fa-graduation-cap"></i>
@@ -597,9 +623,87 @@
                         </table>
                     </div>
                 </div>
+            </div>
         </div>
-        </section>
-    </div>
+    </section>
+
+    <!-- Help Section -->
+    <section id="help&support" class="my-3">
+        <div class="card my-3">
+            <h5 class="card-header bg-light">Help and Support <i class="fa fa-question-circle"></i> <a
+                    class="btn float-right" id="helpSectionBtn"><i class="fa fa-minus float-right"></i></a>
+            </h5>
+            <div class="card-body" id="helpArea">
+                <!-- alert -->
+                <div class="alert alert-danger alert-dismissible fade show" id="surveyAlert" style="display: none;"
+                    role="alert">
+                    <strong>Describe Your issue or improvements</strong> By our developer Survey click the button below.
+                    <a href="https://forms.gle/45Cmro7TxJoZCx5h9">Go now!</a>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="alert alert-success alert-dismissible fade show" id="surveyAlert2" style="display: none;"
+                    role="alert">
+                    <strong>Thanks!</strong> for confirming.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <h5 class="text-muted font-weight-bolder d-inline-block">Is there a issue with our app?
+                    <div class="form-check" id="issue">
+                        <input class="form-check-input" type="radio" name="isIssue" id="yesIssue" value="yesIssue">
+                        <label class="form-check-label font-weight-bolder text-muted" for="yesIssue"
+                            aria-checked="true"><i class="fa fa-check text-danger"></i> Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="isIssue" id="noIssue" value="noIssue"
+                            checked>
+                        <label class="form-check-label font-weight-bolder text-muted" for="noIssue"><i
+                                class="fa fa-crosshairs text-success"></i> No</label>
+                    </div>
+
+                    <h5 class="d-block font-weight-bolder text-muted">Are we need to took more improvements? <div
+                            class="form-check" id="improve">
+                            <input class="form-check-input" type="radio" name="isImprove" id="yesImprove"
+                                value="yesIssue">
+                            <label class="form-check-label font-weight-bolder text-muted" for="yesImprove"
+                                aria-checked="true"><i class="fa fa-check text-danger"></i> Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="isImprove" id="noImprove"
+                                value="noImprove" checked>
+                            <label class="form-check-label font-weight-bolder text-muted" for="noImprove"><i
+                                    class="fa fa-crosshairs text-success"></i> No</label>
+                        </div>
+                    </h5>
+                    <a class="btn btn-outline-primary" id="ensureBtn">Ensure</a>
+
+                    <a class="link alert alert-warning btn text-muted font-weight-bolder d-block my-3"
+                        href="https://forms.gle/45Cmro7TxJoZCx5h9" style="display: none;" id="suggestSurvey"><i
+                            class="fa fa-database"></i>
+                        Then took our developer survey and describe your issue with us</a>
+                    <div id="BMRArticle" style="display: block;">
+                        <p><span class="text-muted font-weight-bolder">If there is a issue with our app then describe
+                                your
+                                issue with us. We will solve the issue as soon as possible. Or you might help us to
+                                improve
+                                the app by suggesting a new feature and issues because <b>Your feedback is very
+                                    important to
+                                    us</b></span>
+                        </p>
+                    </div>
+                    <hr>
+                    <p><b>Took the survey to describe a issue of our app or Help us to improve the app.</b></p>
+                    <hr>
+                    <div id="surveyButton">
+                        <a href="https://forms.gle/45Cmro7TxJoZCx5h9" target="_blank"
+                            class="btn btn-outline-warning alert alert-warning font-weight-bolder d-block" rel="noopener noreferrer">Go To Developer Survey</a>
+                    </div>
+            </div>
+        </div>
+    </section>
 
     <!-- footer -->
     <footer class="container" style="margin-top: 10px;">

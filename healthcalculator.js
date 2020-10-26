@@ -27,6 +27,47 @@ settingsBtn.addEventListener('click', (e) => {
         settingsBtn.innerHTML = "<i class='fa fa-plus'></i> Settings"
     }
 });
+
+//TODO: Hide the intro alert after several minutes
+let introAlert = document.getElementById('introAlert');
+setTimeout(() => {
+    introAlert.classList.add('hide')
+    introAlert.classList.remove('show')
+    introAlert.classList.add('d-none')
+}, 5000);
+//TODO: When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar 
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
+    scrollFunction();
+}
+
+//TODO: Scroll top button
+let topBtn = document.getElementById('topBtn');
+
+function scrollFunction() {
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+}
+
+function goTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+topBtn.addEventListener('click', () => {
+    goTop();
+});
+
 let click = 0;
 //TODO: Dark mode 
 function darkMode() {
@@ -333,13 +374,11 @@ function calculateHealth() {
 
         htmlForCalories = `
     <div class="my-3 d-flex justify-content-center align-content-center flex-column">
-    <h5 class="card-header my-3">Your Daily ${bodyBurningText} needs | According to <b>BMR</b></h5>
+    <h5 class="card-header text-center my-3">Your Daily ${bodyBurningText} needs</h5>
     <h3 class="card-title text-center" id="calculateTitle">${bodyBurningText} need Per Day : </h3>
     <h4 class="d-block font-weight-bold mx-auto" style="font-size: 1.5rem;">
         <sup><i class="fa fa-fire text-danger"></i></sup> <span id="calorieResult"> ${bodyBurning}
             ${bodyBurningText}/Day</span>
-            <!-- The button used to copy the text -->
-            <span onclick="copyCalorie()" class="btn btn-outline-primary"><i class="fa fa-clipboard"></i></span>
     </h4>
 </div>
 <hr>
@@ -433,6 +472,7 @@ style="font-size: 1.5rem;" id="SD">
                 class="font-weight-bolder text-muted">=</i> ${state}</span>
     </li>
     <hr>
+    <h5 class="card-header text-weight-bolder text-muted">Calculated Standard Health</h5>
         <li class="list-group-item" id="goodValues">1. Your BMI should be : <span
         class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${healthyBMI}</span>
@@ -452,6 +492,7 @@ style="font-size: 1.5rem;" id="SD">
         class="font-weight-bolder text-muted">=</i> ${defferenceWeight}</span>
         </li>
         <hr>
+        <h5 class="card-header text-weight-bolder text-muted">Suggetions</h5>
         <li class="list-group-item" id="tips">Tips (করনীয়) : <span
         class=" alert responsive d-block font-weight-bolder text-warning text-muted bg-light my-3"><i
         class="font-weight-bolder text-muted">=</i> ${tips}</span>
@@ -582,3 +623,29 @@ BMITableContent.addEventListener('click', () => {
         BMIStateTable2.style.display = "none";
     }
 })
+
+//!For help and support section
+let helpSectionBtn = document.getElementById('helpSectionBtn');
+helpSectionBtn.addEventListener('click', () => {
+    let helpArea = document.getElementById('helpArea');
+    if (helpArea.style.display === 'none') {
+        helpArea.style.display = 'block';
+        helpSectionBtn.innerHTML = `<i class="fa fa-minus float-right"></i>`;
+    } else {
+        helpArea.style.display = 'none';
+        helpSectionBtn.innerHTML = `<i class="fa fa-plus float-right"></i>`;
+    }
+})
+
+let issue = document.getElementById("issue");
+let improve = document.getElementById("improve");
+let surveyAlert = document.getElementById("surveyAlert");
+ensureBtn.addEventListener('click', (e) => {
+    let helpIssue = document.querySelector("input[name='isIssue']:checked").value;
+    let helpImprove = document.querySelector("input[name='isImprove']:checked").value;
+    if (helpIssue === "noIssue" && helpImprove === "noImprove") {
+        surveyAlert2.style.display = "block";
+    } else {
+        surveyAlert.style.display = "block";
+    }
+});
