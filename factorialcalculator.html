@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Factorial Calculator</title>
+</head>
+
+<body>
+    <div class="container my-3">
+        <div class="card">
+            <h5 class="card-header">
+                Factorial Calculator
+            </h5>
+            <div class="card-body my-3">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend valChanger">
+                        <span class="input-group-text" style="cursor: pointer;"
+                            onclick="document.getElementById('inputNumber').value--"><i class="fa fa-minus"></i></span>
+                    </div>
+                    <input type="number" id="inputNumber" placeholder="Enter the number" class="form-control" min="2"
+                        aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append valChanger">
+                        <span class="input-group-text" style="cursor: pointer;"
+                            onclick="document.getElementById('inputNumber').value++"><i class="fa fa-plus"></i></span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="calculateBtn">Calculate</button>
+            </div>
+        </div>
+
+        <div class="card my-3">
+            <div class="card-header">
+                Result Section
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success" id="formula" role="alert">
+                    <h5>Formula : n!</h5>
+                    <h5 class="formula">(n-1)! x n</h5>
+                </div>
+                <div class="alert alert-warning" id="result" role="alert">
+                    <h5>Your result will apear here.</h5>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-outline-success" onclick="window.print()">Print results</button>
+                    <button class="btn float-right btn-outline-primary" onclick="location.reload()">Reload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="factorialcalculator.js"></script>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
