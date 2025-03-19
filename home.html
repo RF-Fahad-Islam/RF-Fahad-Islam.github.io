@@ -31,6 +31,14 @@
             transition: background 0.5s, color 0.5s;
             min-height: 100vh;
         }
+        .banner {
+            width: 100%;
+            height: 300px;
+            background: url('banner.jpg') no-repeat center center/cover;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
         .profile {
             text-align: center;
             margin-bottom: 40px;
@@ -79,6 +87,27 @@
         }
         .about-me p {
             font-size: 1rem;
+            opacity: 0.8;
+        }
+        .description {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .description p {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        .description a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .description a:hover {
             opacity: 0.8;
         }
         .controls {
@@ -169,11 +198,11 @@
             transform: translateY(-2px);
         }
         .card img {
-            width: 100%;
+            width: 100px;
+            height: 100px;
             border-radius: 10px;
-            max-height: 150px;
             object-fit: cover;
-            box-shadow: var(--shadow);
+            margin-bottom: 15px;
         }
         .project-count {
             margin-top: 20px;
@@ -189,10 +218,11 @@
     <div class="profile">
         <img src="https://ibb.co.com/fGP0dv0f" alt="Fahad Islam">
         <h1>Fahad Islam</h1>
-        <p> Developer | Programmer | Tech Enthusiast</p>
+        <p> Developer | Competitive Programmer | Tech Enthusiast</p>
         <div class="profile-links">
             <a href="https://read.cv/fahadislam" target="_blank">Read.cv</a>
             <a href="https://github.com/fahadislam" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/rf-fahad-islam-a32b8317b" target="_blank">LinkedIn</a>
             <a href="https://fahadislam.hashnode.dev" target="_blank">Hashnode</a>
         </div>
     </div>
@@ -209,8 +239,17 @@
         </p>
     </div>
 
+    <!-- Description Section -->
+    <div class="description">
+        <p>
+            These are some of my <strong>beginner projects</strong> that I built while learning HTML, CSS, and JavaScript.
+            They represent my journey into web development and my passion for creating functional and interactive applications.
+            For my <strong>advanced projects</strong>, visit my <a href="https://github.com/fahadislam" target="_blank">GitHub</a>.
+        </p>
+    </div>
+
     <!-- Projects Section -->
-    <h1>Projects</h1>
+    <h1>HTML Projects</h1>
     <div class="controls">
         <div class="search-filter">
             <input type="text" id="search" placeholder="Search projects..." oninput="filterProjects()">
@@ -231,31 +270,31 @@
 
     <script>
         const projects = [
-            { name: "Age Calculator", img: "agecalculator.jpg", link: "agecalculator.html", category: "Calculator", description: "Calculate your age based on your birth date." },
-            { name: "Alarm", img: "alarm.jpg", link: "alarm.html", category: "Utility", description: "Set an alarm with a custom time and sound." },
-            { name: "Calculator", img: "calculator.jpg", link: "calculator.html", category: "Calculator", description: "A simple calculator for basic arithmetic operations." },
-            { name: "Clock", img: "clock.jpg", link: "clock.html", category: "Utility", description: "A real-time analog and digital clock." },
-            { name: "Converter", img: "converter.jpg", link: "converter.html", category: "Tool", description: "Convert units like length, weight, and temperature." },
-            { name: "Digital Clock", img: "digitalclock.jpg", link: "digitalclock.html", category: "Utility", description: "A sleek digital clock with customizable themes." },
-            { name: "Factorial Calculator", img: "factorialcalculator.jpg", link: "factorialcalculator.html", category: "Calculator", description: "Calculate the factorial of any number." },
-            { name: "Form Handler", img: "form.jpg", link: "form.html", category: "Tool", description: "A form handler for collecting and processing user input." },
-            { name: "Health Calculator", img: "healthcalculator.jpg", link: "healthcalculator.html", category: "Calculator", description: "Calculate BMI, calorie intake, and more." },
-            { name: "Library App", img: "library.jpg", link: "library.html", category: "Tool", description: "Manage your book collection with this library app." },
-            { name: "Map Viewer", img: "map.jpg", link: "map.html", category: "Tool", description: "View and interact with maps in real-time." },
-            { name: "Multiplication Table Maker", img: "multiplicationtablemaker.jpg", link: "multiplicationtablemaker.html", category: "Tool", description: "Generate multiplication tables for any number." },
-            { name: "News Portal", img: "news.jpg", link: "news.html", category: "Utility", description: "Stay updated with the latest news from around the world." },
-            { name: "Note Keeper", img: "note.jpg", link: "note.html", category: "Tool", description: "A simple app to create and manage notes." },
-            { name: "Number Guess Game", img: "numberguessgame.jpg", link: "numberguessgame.html", category: "Game", description: "Guess the correct number in this fun game." },
-            { name: "Password Generator", img: "passwordgenerator.jpg", link: "passwordgenerator.html", category: "Tool", description: "Generate strong and secure passwords." },
-            { name: "Postman Clone", img: "postmanClone.jpg", link: "postmanClone.html", category: "Tool", description: "A clone of Postman for testing APIs." },
-            { name: "Prime Number Detector", img: "primenumberdetector.jpg", link: "primenumberdetector.html", category: "Tool", description: "Check if a number is prime or not." },
-            { name: "Random Number Generator", img: "randomisernumber.jpg", link: "randomisernumber.html", category: "Tool", description: "Generate random numbers within a specified range." },
-            { name: "Simple JS Runner", img: "simplejsrunner.jpg", link: "simplejsrunner.html", category: "Tool", description: "Run and test JavaScript code snippets." },
-            { name: "Sleep Calculator", img: "sleepcalculator.jpg", link: "sleepcalculator.html", category: "Calculator", description: "Calculate your optimal sleep schedule." },
-            { name: "Table Maker", img: "tablemaker.jpg", link: "tablemaker.html", category: "Tool", description: "Create and customize tables for data display." },
-            { name: "Tip Calculator", img: "tipcalculator.jpg", link: "tipcalculator.html", category: "Calculator", description: "Calculate tips for restaurants and services." },
-            { name: "To-Do List", img: "todo.jpg", link: "todo.html", category: "Tool", description: "Manage your tasks with this simple to-do list app." },
-            { name: "VAT Calculator", img: "vatcalculator.jpg", link: "vatcalculator.html", category: "Calculator", description: "Calculate VAT for products and services." }
+            { name: "Age Calculator", img: "icons8-age-96.png", link: "agecalculator.html", category: "Calculator", description: "Calculate your age based on your birth date." },
+            { name: "Alarm", img: "icons8-alarm-96.png", link: "alarm.html", category: "Utility", description: "Set an alarm with a custom time and sound." },
+            { name: "Calculator", img: "icons8-calculator-100.png", link: "calculator.html", category: "Calculator", description: "A simple calculator for basic arithmetic operations." },
+            { name: "Clock", img: "icons8-clock-100.png", link: "clock.html", category: "Utility", description: "A real-time analog and digital clock." },
+            { name: "Converter", img: "icons8-drag-and-drop-100.png", link: "converter.html", category: "Tool", description: "Convert units like length, weight, and temperature." },
+            { name: "Digital Clock", img: "icons8-alarm-clock-100.png", link: "digitalclock.html", category: "Utility", description: "A sleek digital clock with customizable themes." },
+            { name: "Factorial Calculator", img: "icons8-calculator-100.png", link: "factorialcalculator.html", category: "Calculator", description: "Calculate the factorial of any number." },
+            { name: "Form Handler", img: "icons8-form-96.png", link: "form.html", category: "Tool", description: "A form handler for collecting and processing user input." },
+            { name: "Health Calculator", img: "icons8-calculator-100.png", link: "healthcalculator.html", category: "Calculator", description: "Calculate BMI, calorie intake, and more." },
+            { name: "Library App", img: "icons8-book-64.png", link: "library.html", category: "Tool", description: "Manage your book collection with this library app." },
+            { name: "Map Viewer", img: "icons8-map-100.png", link: "map.html", category: "Tool", description: "View and interact with maps in real-time." },
+            { name: "Multiplication Table Maker", img: "icons8-table-96.png", link: "multiplicationtablemaker.html", category: "Tool", description: "Generate multiplication tables for any number." },
+            { name: "News Portal", img: "icons8-website-100.png", link: "news.html", category: "Utility", description: "Stay updated with the latest news from around the world." },
+            { name: "Note Keeper", img: "icons8-note-96.png", link: "note.html", category: "Tool", description: "A simple app to create and manage notes." },
+            { name: "Number Guess Game", img: "icons8-hint-64.png", link: "numberguessgame.html", category: "Game", description: "Guess the correct number in this fun game." },
+            { name: "Password Generator", img: "icons8-password-100.png", link: "passwordgenerator.html", category: "Tool", description: "Generate strong and secure passwords." },
+            { name: "Postman Clone", img: "postman.png", link: "postmanClone.html", category: "Tool", description: "A clone of Postman for testing APIs." },
+            { name: "Prime Number Detector", img: "icons8-calculator-100.png", link: "primenumberdetector.html", category: "Tool", description: "Check if a number is prime or not." },
+            { name: "Random Number Generator", img: "icons8-repeat-80.png", link: "randomisernumber.html", category: "Tool", description: "Generate random numbers within a specified range." },
+            { name: "Simple JS Runner", img: "icons8-play-button-96.png", link: "simplejsrunner.html", category: "Tool", description: "Run and test JavaScript code snippets." },
+            { name: "Sleep Calculator", img: "icons8-alarm-clock-96.png", link: "sleepcalculator.html", category: "Calculator", description: "Calculate your optimal sleep schedule." },
+            { name: "Table Maker", img: "icons8-table-96.png", link: "tablemaker.html", category: "Tool", description: "Create and customize tables for data display." },
+            { name: "Tip Calculator", img: "icons8-tips-96.png", link: "tipcalculator.html", category: "Calculator", description: "Calculate tips for restaurants and services." },
+            { name: "To-Do List", img: "icons8-todo-list-100.png", link: "todo.html", category: "Tool", description: "Manage your tasks with this simple to-do list app." },
+            { name: "VAT Calculator", img: "icons8-discount-64.png", link: "vatcalculator.html", category: "Calculator", description: "Calculate VAT for products and services." }
         ];
 
         const projectContainer = document.getElementById('projectContainer');
