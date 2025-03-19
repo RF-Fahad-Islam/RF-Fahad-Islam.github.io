@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Project Gallery</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .banner {
+            width: 100%;
+            height: 250px;
+            background: url('banner.png') no-repeat center center/cover;
+            border-radius: 10px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255,255,255,0.2);
+        }
+        .card h3 {
+            margin: 15px 0;
+            color: #ffcc00;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #ffcc00;
+            color: #121212;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e6b800;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            max-height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <h1>Project Gallery</h1>
+    <div class="container">
+        <script>
+            const projects = [
+                {name: "Age Calculator", img: "agecalculator.jpg", link: "agecalculator.html"},
+                {name: "Alarm", img: "alarm.jpg", link: "alarm.html"},
+                {name: "Calculator", img: "calculator.jpg", link: "calculator.html"},
+                {name: "Clock", img: "clock.jpg", link: "clock.html"},
+                {name: "Converter", img: "converter.jpg", link: "converter.html"},
+                {name: "Digital Clock", img: "digitalclock.jpg", link: "digitalclock.html"},
+                {name: "Factorial Calculator", img: "factorialcalculator.jpg", link: "factorialcalculator.html"},
+                {name: "Form Handler", img: "form.jpg", link: "form.html"},
+                {name: "Health Calculator", img: "healthcalculator.jpg", link: "healthcalculator.html"},
+                {name: "Library App", img: "library.jpg", link: "library.html"},
+                {name: "Map Viewer", img: "map.jpg", link: "map.html"},
+                {name: "Multiplication Table Maker", img: "multiplicationtablemaker.jpg", link: "multiplicationtablemaker.html"},
+                {name: "News Portal", img: "news.jpg", link: "news.html"},
+                {name: "Note Keeper", img: "note.jpg", link: "note.html"},
+                {name: "Number Guess Game", img: "numberguessgame.jpg", link: "numberguessgame.html"},
+                {name: "Password Generator", img: "passwordgenerator.jpg", link: "passwordgenerator.html"},
+                {name: "Postman Clone", img: "postmanClone.jpg", link: "postmanClone.html"},
+                {name: "Prime Number Detector", img: "primenumberdetector.jpg", link: "primenumberdetector.html"},
+                {name: "Random Number Generator", img: "randomisernumber.jpg", link: "randomisernumber.html"},
+                {name: "Simple JS Runner", img: "simplejsrunner.jpg", link: "simplejsrunner.html"},
+                {name: "Sleep Calculator", img: "sleepcalculator.jpg", link: "sleepcalculator.html"},
+                {name: "Table Maker", img: "tablemaker.jpg", link: "tablemaker.html"},
+                {name: "Tip Calculator", img: "tipcalculator.jpg", link: "tipcalculator.html"},
+                {name: "To-Do List", img: "todo.jpg", link: "todo.html"},
+                {name: "VAT Calculator", img: "vatcalculator.jpg", link: "vatcalculator.html"}
+            ];
+            
+            document.write(projects.map(project => `
+                <div class="card">
+                    <img src="/icon/${project.img}" alt="${project.name}">
+                    <h3>${project.name}</h3>
+                    <a href="https://rf-fahad-islam.github.io/${project.link}" class="btn">View Project</a>
+                </div>
+            `).join(''));
+        </script>
+    </div>
+</body>
+</html>
