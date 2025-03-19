@@ -238,6 +238,8 @@
         </p>
     </div>
 
+    
+
     <!-- Description Section -->
     <div class="description">
         <p>
@@ -258,42 +260,84 @@
                 <option value="Game">Games</option>
                 <option value="Utility">Utilities</option>
                 <option value="Tool">Tools</option>
+                <option value="Tool">Fun</option>
             </select>
         </div>
     </div>
     <div class="container" id="projectContainer"></div>
     <div class="project-count" id="projectCount"></div>
+    <hr>
+    <!-- Intermediate Projects Section -->
+    <div class="about-me">
+        <h2>Python Projects</h2>
+        <p>
+            Here are some of my intermediate projects that showcase my skills in various technologies like Python, Flask, Vue.js, and more. These projects represent a step forward in my programming journey, and I am continually improving them.
+        </p>
+    </div>
+
+    <!-- GitHub Projects -->
+    <div class="container">
+        <div class="card">
+            <h3>All-Python-Projects</h3>
+            <p>This is the repository of all of my python projectds. </p>
+            <a href="https://github.com/RF-Fahad-Islam/All-Python-Projects" class="btn" target="_blank">View Repo</a>
+        </div>
+        <div class="card">
+            <h3>Drawing Pad</h3>
+            <p>A python Tkinter GUI of the drawing board. You can create art and also save the art on a .pkl file to get it later. Work with line, rectangle, circle, text, color </p>
+            <a href="https://github.com/RF-Fahad-Islam/Drawing-Pad" class="btn" target="_blank">View Repo</a>
+        </div>
+        <div class="card">
+            <h3>Health-Management-System</h3>
+            <p>A Python project for managing diet and exercise records.</p>
+            <a href="https://github.com/RF-Fahad-Islam/Health-Management-System" class="btn" target="_blank">View Repo</a>
+        </div>
+        <div class="card">
+            <h3>PC-File-Manager</h3>
+            <p>A GUI-based file management program for handling file extensions.</p>
+            <a href="https://github.com/RF-Fahad-Islam/PC-File-Manager" class="btn" target="_blank">View Repo</a>
+        </div>
+        <div class="card">
+            <h3>Contact-Book-Flask-App</h3>
+            <p>A Flask app for managing contacts in a MySQL database.</p>
+            <a href="https://github.com/RF-Fahad-Islam/Contact-Book-Flask-App" class="btn" target="_blank">View Repo</a>
+        </div>
+    </div>
 
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
 
     <script>
         const projects = [
-            { name: "Age Calculator", img: "icons8-age-96.png", link: "agecalculator.html", category: "Calculator", description: "Calculate your age based on your birth date." },
-            { name: "Alarm", img: "icons8-alarm-96.png", link: "alarm.html", category: "Utility", description: "Set an alarm with a custom time and sound." },
-            { name: "Calculator", img: "icons8-calculator-100.png", link: "calculator.html", category: "Calculator", description: "A simple calculator for basic arithmetic operations." },
-            { name: "Clock", img: "icons8-clock-100.png", link: "clock.html", category: "Utility", description: "A real-time analog and digital clock." },
-            { name: "Converter", img: "icons8-drag-and-drop-100.png", link: "converter.html", category: "Tool", description: "Convert units like length, weight, and temperature." },
-            { name: "Digital Clock", img: "icons8-alarm-clock-100.png", link: "digitalclock.html", category: "Utility", description: "A sleek digital clock with customizable themes." },
-            { name: "Factorial Calculator", img: "icons8-calculator-100.png", link: "factorialcalculator.html", category: "Calculator", description: "Calculate the factorial of any number." },
-            { name: "Form Handler", img: "icons8-form-96.png", link: "form.html", category: "Tool", description: "A form handler for collecting and processing user input." },
-            { name: "Health Calculator", img: "icons8-calculator-100.png", link: "healthcalculator.html", category: "Calculator", description: "Calculate BMI, calorie intake, and more." },
-            { name: "Library App", img: "icons8-book-64.png", link: "library.html", category: "Tool", description: "Manage your book collection with this library app." },
-            { name: "Map Viewer", img: "icons8-map-100.png", link: "map.html", category: "Tool", description: "View and interact with maps in real-time." },
-            { name: "Multiplication Table Maker", img: "icons8-table-96.png", link: "multiplicationtablemaker.html", category: "Tool", description: "Generate multiplication tables for any number." },
-            { name: "News Portal", img: "icons8-website-100.png", link: "news.html", category: "Utility", description: "Stay updated with the latest news from around the world." },
-            { name: "Note Keeper", img: "icons8-note-96.png", link: "note.html", category: "Tool", description: "A simple app to create and manage notes." },
+        { name: "Tic Tac Toe", img: "icons8-tic-tac-toe-67.png", link: "playingtictactoe.netlify.app", category: "Game", description: "Tic tac toe game with computer" },
             { name: "Number Guess Game", img: "icons8-hint-64.png", link: "numberguessgame.html", category: "Game", description: "Guess the correct number in this fun game." },
-            { name: "Password Generator", img: "icons8-password-100.png", link: "passwordgenerator.html", category: "Tool", description: "Generate strong and secure passwords." },
+            { name: "Task Tracker", img: "icons8-todo-list-100.png", link: "https://tasks-reminder.netlify.app/#/", category: "Utilitiy", description: "A simple VueJS app to add, delete and mark tasks with JS." },
+            { name: "Library App", img: "icons8-book-64.png", link: "library.html", category: "Tool", description: "Manage your book collection with this library app." },
+            { name: "Health Calculator", img: "icons8-calculator-100.png", link: "healthcalculator.html", category: "Calculator", description: "Calculate BMI, calorie intake, and more." },
             { name: "Postman Clone", img: "postman.png", link: "postmanClone.html", category: "Tool", description: "A clone of Postman for testing APIs." },
+            { name: "Age Calculator", img: "icons8-age-96.png", link: "agecalculator.html", category: "Calculator", description: "Calculate your age based on your birth date." },
+            { name: "Anime quote generator", img: "icons8-age-96.png", link: "Anime-Quotes/index.html", category: "Fun", description: "Anime quotes generator" },
+            { name: "Rock paper scissors", img: "icons8-rock-40.png", link: "rock-paper-scissor/index.html", category: "Game", description: "Rock paper scissors game with computer" },
+            { name: "Random Waifu Pics", img: "anime.webp", link: "Random-Waifu-Pics/index.html", category: "Fun", description: "Random Waifu pics generator" },
+
+            { name: "Factorial Calculator", img: "icons8-calculator-100.png", link: "factorialcalculator.html", category: "Calculator", description: "Calculate the factorial of any number." },
+            { name: "Sleep Calculator", img: "icons8-alarm-clock-96.png", link: "sleepcalculator.html", category: "Calculator", description: "Calculate your optimal sleep schedule." },
+            { name: "Converter", img: "icons8-drag-and-drop-100.png", link: "converter.html", category: "Tool", description: "Convert units like length, weight, and temperature." },
+            { name: "Calculator", img: "icons8-calculator-100.png", link: "calculator.html", category: "Calculator", description: "A simple calculator for basic arithmetic operations." },
+            { name: "Table Maker", img: "icons8-table-96.png", link: "tablemaker.html", category: "Tool", description: "Create and customize tables for data display." },
+            { name: "Alarm", img: "icons8-alarm-96.png", link: "alarm.html", category: "Utility", description: "Set an alarm with a custom time and sound." },
+            { name: "Note Keeper", img: "icons8-note-96.png", link: "note.html", category: "Tool", description: "A simple app to create and manage notes." },
+            { name: "Password Generator", img: "icons8-password-100.png", link: "passwordgenerator.html", category: "Tool", description: "Generate strong and secure passwords." },
             { name: "Prime Number Detector", img: "icons8-calculator-100.png", link: "primenumberdetector.html", category: "Tool", description: "Check if a number is prime or not." },
             { name: "Random Number Generator", img: "icons8-repeat-80.png", link: "randomisernumber.html", category: "Tool", description: "Generate random numbers within a specified range." },
-            { name: "Simple JS Runner", img: "icons8-play-button-96.png", link: "simplejsrunner.html", category: "Tool", description: "Run and test JavaScript code snippets." },
-            { name: "Sleep Calculator", img: "icons8-alarm-clock-96.png", link: "sleepcalculator.html", category: "Calculator", description: "Calculate your optimal sleep schedule." },
-            { name: "Table Maker", img: "icons8-table-96.png", link: "tablemaker.html", category: "Tool", description: "Create and customize tables for data display." },
+            { name: "VAT Calculator", img: "icons8-discount-64.png", link: "vatcalculator.html", category: "Calculator", description: "Calculate VAT for products and services." },
             { name: "Tip Calculator", img: "icons8-tips-96.png", link: "tipcalculator.html", category: "Calculator", description: "Calculate tips for restaurants and services." },
             { name: "To-Do List", img: "icons8-todo-list-100.png", link: "todo.html", category: "Tool", description: "Manage your tasks with this simple to-do list app." },
-            { name: "VAT Calculator", img: "icons8-discount-64.png", link: "vatcalculator.html", category: "Calculator", description: "Calculate VAT for products and services." }
+            { name: "News Portal", img: "icons8-website-100.png", link: "news.html", category: "Utility", description: "Stay updated with the latest news from around the world." },
+            { name: "Digital Clock", img: "icons8-alarm-clock-100.png", link: "digitalclock.html", category: "Utility", description: "A sleek digital clock with customizable themes." },
+            { name: "Map Viewer", img: "icons8-map-100.png", link: "map.html", category: "Tool", description: "View and interact with maps in real-time." },
+            { name: "Simple JS Runner", img: "icons8-play-button-96.png", link: "simplejsrunner.html", category: "Tool", description: "Run and test JavaScript code snippets." },
+            { name: "Clock", img: "icons8-clock-100.png", link: "clock.html", category: "Utility", description: "A real-time analog and digital clock." },
         ];
 
         const projectContainer = document.getElementById('projectContainer');
