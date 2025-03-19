@@ -3,21 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Project Gallery</title>
+    <meta name="description" content="Explore Fahad Islam's portfolio and projects.">
+    <meta name="keywords" content="Fahad Islam, Portfolio, Projects, Web Development">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Fahad Islam - Portfolio</title>
     <style>
+        :root {
+            --background: #000000;
+            --card-bg: #1a1a1a;
+            --accent: #00b4db; /* Neo Blue */
+            --text: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="light"] {
+            --background: #f4f4f4;
+            --card-bg: #ffffff;
+            --text: #000000;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #121212;
+            background: var(--background);
             margin: 0;
             padding: 20px;
-            text-align: center;
-            color: white;
+            color: var(--text);
+            transition: background 0.5s, color 0.5s;
+            min-height: 100vh;
         }
-        .banner {
-            width: 100%;
-            height: 250px;
-            background: url('banner.webp') no-repeat center center/cover;
-            border-radius: 10px;
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 20px;
+        }
+        .profile h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+        .profile p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        .profile-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .profile-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        .profile-links a:hover {
+            opacity: 0.8;
+        }
+        .about-me {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+        }
+        .about-me h2 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .about-me p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .search-filter {
+            display: flex;
+            gap: 10px;
+        }
+        .search-filter input, .search-filter select {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: var(--card-bg);
+            color: var(--text);
+            box-shadow: var(--shadow);
+            font-family: 'Poppins', sans-serif;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px;
+            background: var(--accent);
+            color: var(--background);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         .container {
             display: grid;
@@ -27,83 +126,171 @@
             padding: 20px;
         }
         .card {
-            background: #1e1e1e;
+            background: var(--card-bg);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(255,255,255,0.1);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(255,255,255,0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .card h3 {
             margin: 15px 0;
-            color: #ffcc00;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .card p {
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.8;
         }
         .btn {
             display: inline-block;
             padding: 12px 20px;
-            background: #ffcc00;
-            color: #121212;
+            background: var(--accent);
+            color: var(--background);
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: var(--shadow);
         }
         .btn:hover {
-            background: #e6b800;
+            background: #0099cc;
+            transform: translateY(-2px);
         }
         .card img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
             max-height: 150px;
             object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+        .project-count {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.8;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="banner"></div>
-    <h1>Project Gallery</h1>
-    <div class="container">
-        <script>
-            const projects = [
-                {name: "Age Calculator", img: "agecalculator.jpg", link: "agecalculator.html"},
-                {name: "Alarm", img: "alarm.jpg", link: "alarm.html"},
-                {name: "Calculator", img: "calculator.jpg", link: "calculator.html"},
-                {name: "Clock", img: "clock.jpg", link: "clock.html"},
-                {name: "Converter", img: "converter.jpg", link: "converter.html"},
-                {name: "Digital Clock", img: "digitalclock.jpg", link: "digitalclock.html"},
-                {name: "Factorial Calculator", img: "factorialcalculator.jpg", link: "factorialcalculator.html"},
-                {name: "Form Handler", img: "form.jpg", link: "form.html"},
-                {name: "Health Calculator", img: "healthcalculator.jpg", link: "healthcalculator.html"},
-                {name: "Library App", img: "library.jpg", link: "library.html"},
-                {name: "Map Viewer", img: "map.jpg", link: "map.html"},
-                {name: "Multiplication Table Maker", img: "multiplicationtablemaker.jpg", link: "multiplicationtablemaker.html"},
-                {name: "News Portal", img: "news.jpg", link: "news.html"},
-                {name: "Note Keeper", img: "note.jpg", link: "note.html"},
-                {name: "Number Guess Game", img: "numberguessgame.jpg", link: "numberguessgame.html"},
-                {name: "Password Generator", img: "passwordgenerator.jpg", link: "passwordgenerator.html"},
-                {name: "Postman Clone", img: "postmanClone.jpg", link: "postmanClone.html"},
-                {name: "Prime Number Detector", img: "primenumberdetector.jpg", link: "primenumberdetector.html"},
-                {name: "Random Number Generator", img: "randomisernumber.jpg", link: "randomisernumber.html"},
-                {name: "Simple JS Runner", img: "simplejsrunner.jpg", link: "simplejsrunner.html"},
-                {name: "Sleep Calculator", img: "sleepcalculator.jpg", link: "sleepcalculator.html"},
-                {name: "Table Maker", img: "tablemaker.jpg", link: "tablemaker.html"},
-                {name: "Tip Calculator", img: "tipcalculator.jpg", link: "tipcalculator.html"},
-                {name: "To-Do List", img: "todo.jpg", link: "todo.html"},
-                {name: "VAT Calculator", img: "vatcalculator.jpg", link: "vatcalculator.html"}
-            ];
-            
-            document.write(projects.map(project => `
-                <div class="card">
-                    <img src="/Icons/${project.img}" alt="${project.name}">
-                    <h3>${project.name}</h3>
-                    <a href="https://rf-fahad-islam.github.io/${project.link}" class="btn">View Project</a>
-                </div>
-            `).join(''));
-        </script>
+    <!-- Profile Section -->
+    <div class="profile">
+        <img src="https://ibb.co.com/fGP0dv0f" alt="Fahad Islam">
+        <h1>Fahad Islam</h1>
+        <p> Developer | Programmer | Tech Enthusiast</p>
+        <div class="profile-links">
+            <a href="https://read.cv/fahadislam" target="_blank">Read.cv</a>
+            <a href="https://github.com/fahadislam" target="_blank">GitHub</a>
+            <a href="https://fahadislam.hashnode.dev" target="_blank">Hashnode</a>
+        </div>
     </div>
+
+    <!-- About Me Section -->
+    <div class="about-me">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm Fahad Islam, a passionate coder with a deep love for problem-solving and building innovative solutions.
+            I thrive on challenges and enjoy competing in programming contests to sharpen my skills. My tech stack includes
+            <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Django</strong>,
+            <strong>Flask</strong>, and <strong>Vue.js</strong>. I'm always eager to learn new technologies and take on exciting projects
+            that push the boundaries of what's possible. Let's create something amazing together!
+        </p>
+    </div>
+
+    <!-- Projects Section -->
+    <h1>Projects</h1>
+    <div class="controls">
+        <div class="search-filter">
+            <input type="text" id="search" placeholder="Search projects..." oninput="filterProjects()">
+            <select id="category" onchange="filterProjects()">
+                <option value="">All Categories</option>
+                <option value="Calculator">Calculators</option>
+                <option value="Game">Games</option>
+                <option value="Utility">Utilities</option>
+                <option value="Tool">Tools</option>
+            </select>
+        </div>
+    </div>
+    <div class="container" id="projectContainer"></div>
+    <div class="project-count" id="projectCount"></div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+    <script>
+        const projects = [
+            { name: "Age Calculator", img: "agecalculator.jpg", link: "agecalculator.html", category: "Calculator", description: "Calculate your age based on your birth date." },
+            { name: "Alarm", img: "alarm.jpg", link: "alarm.html", category: "Utility", description: "Set an alarm with a custom time and sound." },
+            { name: "Calculator", img: "calculator.jpg", link: "calculator.html", category: "Calculator", description: "A simple calculator for basic arithmetic operations." },
+            { name: "Clock", img: "clock.jpg", link: "clock.html", category: "Utility", description: "A real-time analog and digital clock." },
+            { name: "Converter", img: "converter.jpg", link: "converter.html", category: "Tool", description: "Convert units like length, weight, and temperature." },
+            { name: "Digital Clock", img: "digitalclock.jpg", link: "digitalclock.html", category: "Utility", description: "A sleek digital clock with customizable themes." },
+            { name: "Factorial Calculator", img: "factorialcalculator.jpg", link: "factorialcalculator.html", category: "Calculator", description: "Calculate the factorial of any number." },
+            { name: "Form Handler", img: "form.jpg", link: "form.html", category: "Tool", description: "A form handler for collecting and processing user input." },
+            { name: "Health Calculator", img: "healthcalculator.jpg", link: "healthcalculator.html", category: "Calculator", description: "Calculate BMI, calorie intake, and more." },
+            { name: "Library App", img: "library.jpg", link: "library.html", category: "Tool", description: "Manage your book collection with this library app." },
+            { name: "Map Viewer", img: "map.jpg", link: "map.html", category: "Tool", description: "View and interact with maps in real-time." },
+            { name: "Multiplication Table Maker", img: "multiplicationtablemaker.jpg", link: "multiplicationtablemaker.html", category: "Tool", description: "Generate multiplication tables for any number." },
+            { name: "News Portal", img: "news.jpg", link: "news.html", category: "Utility", description: "Stay updated with the latest news from around the world." },
+            { name: "Note Keeper", img: "note.jpg", link: "note.html", category: "Tool", description: "A simple app to create and manage notes." },
+            { name: "Number Guess Game", img: "numberguessgame.jpg", link: "numberguessgame.html", category: "Game", description: "Guess the correct number in this fun game." },
+            { name: "Password Generator", img: "passwordgenerator.jpg", link: "passwordgenerator.html", category: "Tool", description: "Generate strong and secure passwords." },
+            { name: "Postman Clone", img: "postmanClone.jpg", link: "postmanClone.html", category: "Tool", description: "A clone of Postman for testing APIs." },
+            { name: "Prime Number Detector", img: "primenumberdetector.jpg", link: "primenumberdetector.html", category: "Tool", description: "Check if a number is prime or not." },
+            { name: "Random Number Generator", img: "randomisernumber.jpg", link: "randomisernumber.html", category: "Tool", description: "Generate random numbers within a specified range." },
+            { name: "Simple JS Runner", img: "simplejsrunner.jpg", link: "simplejsrunner.html", category: "Tool", description: "Run and test JavaScript code snippets." },
+            { name: "Sleep Calculator", img: "sleepcalculator.jpg", link: "sleepcalculator.html", category: "Calculator", description: "Calculate your optimal sleep schedule." },
+            { name: "Table Maker", img: "tablemaker.jpg", link: "tablemaker.html", category: "Tool", description: "Create and customize tables for data display." },
+            { name: "Tip Calculator", img: "tipcalculator.jpg", link: "tipcalculator.html", category: "Calculator", description: "Calculate tips for restaurants and services." },
+            { name: "To-Do List", img: "todo.jpg", link: "todo.html", category: "Tool", description: "Manage your tasks with this simple to-do list app." },
+            { name: "VAT Calculator", img: "vatcalculator.jpg", link: "vatcalculator.html", category: "Calculator", description: "Calculate VAT for products and services." }
+        ];
+
+        const projectContainer = document.getElementById('projectContainer');
+        const projectCount = document.getElementById('projectCount');
+
+        function renderProjects(filteredProjects) {
+            projectContainer.innerHTML = filteredProjects.map(project => `
+                <div class="card">
+                    <img src="Icons/${project.img}" alt="${project.name}" loading="lazy" onerror="this.src='placeholder.jpg';">
+                    <h3>${project.name}</h3>
+                    <p>${project.description}</p>
+                    <a href="https://rf-fahad-islam.github.io/${project.link}" class="btn" aria-label="View ${project.name} Project">View Project</a>
+                </div>
+            `).join('');
+            projectCount.textContent = `Showing ${filteredProjects.length} of ${projects.length} projects`;
+        }
+
+        function filterProjects() {
+            const searchQuery = document.getElementById('search').value.toLowerCase();
+            const categoryQuery = document.getElementById('category').value;
+            const filteredProjects = projects.filter(project => {
+                const matchesSearch = project.name.toLowerCase().includes(searchQuery);
+                const matchesCategory = categoryQuery ? project.category === categoryQuery : true;
+                return matchesSearch && matchesCategory;
+            });
+            renderProjects(filteredProjects);
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            body.dataset.theme = body.dataset.theme === 'light' ? 'dark' : 'light';
+        }
+
+        // Initial render
+        renderProjects(projects);
+    </script>
 </body>
 </html>
