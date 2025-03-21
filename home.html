@@ -308,9 +308,9 @@
 
     <script>
         const projects = [
-        { name: "Tic Tac Toe", img: "icons8-tic-tac-toe-67.png", link: "playingtictactoe.netlify.app", category: "Game", description: "Tic tac toe game with computer" },
+        { name: "Tic Tac Toe", img: "icons8-tic-tac-toe-67.png", link: "https://playingtictactoe.netlify.app", category: "Game", description: "Tic tac toe game with computer" ,ex: True},
             { name: "Number Guess Game", img: "icons8-hint-64.png", link: "numberguessgame.html", category: "Game", description: "Guess the correct number in this fun game." },
-            { name: "Task Tracker", img: "icons8-todo-list-100.png", link: "https://tasks-reminder.netlify.app/#/", category: "Utilitiy", description: "A simple VueJS app to add, delete and mark tasks with JS." },
+            { name: "Task Tracker", img: "icons8-todo-list-100.png", link: "https://tasks-reminder.netlify.app/#/", category: "Utilitiy", description: "A simple VueJS app to add, delete and mark tasks with JS." , ex:True},
             { name: "Library App", img: "icons8-book-64.png", link: "library.html", category: "Tool", description: "Manage your book collection with this library app." },
             { name: "Health Calculator", img: "icons8-calculator-100.png", link: "healthcalculator.html", category: "Calculator", description: "Calculate BMI, calorie intake, and more." },
             { name: "Postman Clone", img: "postman.png", link: "postmanClone.html", category: "Tool", description: "A clone of Postman for testing APIs." },
@@ -348,7 +348,12 @@
                     <img src="Icons/${project.img}" alt="${project.name}" loading="lazy" onerror="this.src='placeholder.jpg';">
                     <h3>${project.name}</h3>
                     <p>${project.description}</p>
+                    if(${project.ex}){
+                    <a href="${project.link}" class="btn" aria-label="View ${project.name} Project">View Project</a>
+                    
+                    } else{
                     <a href="https://rf-fahad-islam.github.io/${project.link}" class="btn" aria-label="View ${project.name} Project">View Project</a>
+                    }
                 </div>
             `).join('');
             projectCount.textContent = `Showing ${filteredProjects.length} of ${projects.length} projects`;
