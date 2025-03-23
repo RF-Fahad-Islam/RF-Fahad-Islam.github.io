@@ -348,7 +348,7 @@ const projects = [
                     <h3>${project.name}</h3>
                     <p>${project.description}</p>
      
-                    <a href="${project.link}" class="btn" aria-label="View ${project.name} Project">View Project</a>
+                    <a href="${project.link}" class="btn" target="_blank" aria-label="View ${project.name} Project">View Project</a>
                 </div>
             `).join('');
             projectCount.textContent = `Showing ${filteredProjects.length} of ${projects.length} projects`;
