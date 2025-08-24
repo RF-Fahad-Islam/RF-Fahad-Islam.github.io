@@ -35,4 +35,3 @@ This table showcases a collection of HTML-based projects of my beginner stage
 | **todo.html** | A to-do list application. | 5 years ago | [Link](https://rf-fahad-islam.github.io/todo.html) |
 | **vatcalculator.html** | Calculates VAT for given amounts. | 5 years ago | [Link](https://rf-fahad-islam.github.io/vatcalculator.html) |
 
-This should help in understanding what each `.html` file does! Let me know if you need any changes or more details. 🚀
